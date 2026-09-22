@@ -1,0 +1,4829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban_X | Smart Civic Infrastructure</title>
+
+  <style>
+    /* ===== Reset & basics ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #1f2a37;
+      line-height: 1.6;
+      background-color: #f7f9fb;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* ===== Header / Navigation ===== */
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e5e9ee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      padding: 18px 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #0b3954;
+      flex-shrink: 0;
+      margin-right: 40px;
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 34px;
+      height: 34px;
+      background-color: #0b3954;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: nowrap;
+      flex: 1;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      font-size: 15px;
+      color: #4b5563;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: #0b3954;
+    }
+
+    .nav-cta {
+      background-color: #0b3954;
+      color: #ffffff !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background-color 0.2s ease;
+      flex-shrink: 0;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+
+    .nav-cta:hover {
+      background-color: #094a70;
+    }
+
+    /* ===== Hero section ===== */
+    .hero {
+      background: linear-gradient(180deg, #eaf3f8 0%, #f7f9fb 100%);
+      text-align: center;
+      padding: 100px 24px 90px;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background-color: #dff3e8;
+      color: #1a7f4e;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #0b3954;
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #5b6572;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background-color: #0b3954;
+      color: #ffffff;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #094a70;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #0b3954;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid #cdd7e0;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #eef2f6;
+    }
+
+    /* ===== Stats section ===== */
+    .stats {
+      background-color: #0b3954;
+      padding: 50px 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stats-grid h3 {
+      color: #ffffff;
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .stats-grid p {
+      color: #a9c2d3;
+      font-size: 14px;
+    }
+
+    /* ===== Features section ===== */
+    .features {
+      text-align: center;
+    }
+
+    .section-title {
+      max-width: 600px;
+      margin: 0 auto 56px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      color: #0b3954;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: #5b6572;
+      font-size: 16px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 32px 26px;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(11, 57, 84, 0.08);
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      background-color: #eaf3f8;
+      color: #0b3954;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      color: #0b3954;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #5b6572;
+      font-size: 14.5px;
+    }
+
+    /* ===== How it works section ===== */
+    .how-it-works {
+      background-color: #eef2f6;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 20px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      background-color: #0b3954;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 16px;
+    }
+
+    .step h3 {
+      font-size: 17px;
+      color: #0b3954;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: #5b6572;
+      font-size: 14.5px;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ===== Report an issue section ===== */
+    .report-issue {
+      background-color: #ffffff;
+    }
+
+    .report-form {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: left;
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0b3954;
+      margin-bottom: 8px;
+    }
+
+    .form-group select,
+    .form-group textarea,
+    .form-group input[type="text"] {
+      width: 100%;
+      font-family: inherit;
+      font-size: 14.5px;
+      color: #1f2a37;
+      background-color: #f7f9fb;
+      border: 1px solid #cdd7e0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group select:focus,
+    .form-group textarea:focus,
+    .form-group input[type="text"]:focus {
+      outline: none;
+      border-color: #0b3954;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    /* ===== Password visibility toggle ===== */
+    .password-field {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .password-field input {
+      padding-right: 42px !important;
+    }
+
+    .password-toggle-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #5b6572;
+    }
+
+    .password-toggle-btn:hover {
+      color: #0b3954;
+    }
+
+    .password-toggle-btn:focus {
+      outline: none;
+    }
+
+    .password-toggle-btn svg {
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+    }
+
+    .file-upload {
+      border: 1px dashed #cdd7e0;
+      border-radius: 8px;
+      background-color: #f7f9fb;
+      padding: 20px 14px;
+      text-align: center;
+    }
+
+    .file-upload label {
+      display: inline-block;
+      cursor: pointer;
+      background-color: #eaf3f8;
+      color: #0b3954;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 8px;
+      margin-bottom: 0;
+    }
+
+    .file-upload input[type="file"] {
+      display: none;
+    }
+
+    .file-upload p {
+      color: #5b6572;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .report-form .btn-primary {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .report-success {
+      display: none;
+      text-align: center;
+      padding: 10px 4px;
+    }
+
+    .report-success .success-icon {
+      width: 56px;
+      height: 56px;
+      background-color: #dff3e8;
+      color: #1a7f4e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 18px;
+    }
+
+    .report-success h3 {
+      font-size: 20px;
+      color: #0b3954;
+      margin-bottom: 10px;
+    }
+
+    .report-success p {
+      color: #5b6572;
+      font-size: 14.5px;
+      margin-bottom: 18px;
+    }
+
+    .report-success .issue-id {
+      display: inline-block;
+      background-color: #eaf3f8;
+      color: #0b3954;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-bottom: 22px;
+      letter-spacing: 0.5px;
+    }
+
+    .report-success .btn-secondary {
+      display: inline-block;
+    }
+
+    /* ===== Track your issue section ===== */
+    .track-issue {
+      background-color: #eef2f6;
+    }
+
+    .track-box {
+      max-width: 640px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .track-input-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .track-input-group input[type="text"] {
+      flex: 1;
+      font-family: inherit;
+      font-size: 14.5px;
+      color: #1f2a37;
+      background-color: #f7f9fb;
+      border: 1px solid #cdd7e0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    .track-input-group input[type="text"]:focus {
+      outline: none;
+      border-color: #0b3954;
+    }
+
+    .track-input-group button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .track-hint {
+      font-size: 13px;
+      color: #5b6572;
+      margin-top: 10px;
+    }
+
+    .track-not-found {
+      display: none;
+      margin-top: 24px;
+      background-color: #fbeaea;
+      color: #a13333;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .track-result {
+      display: none;
+      margin-top: 32px;
+    }
+
+    .track-result-meta {
+      margin-bottom: 28px;
+    }
+
+    .track-result-meta p {
+      font-size: 14px;
+      color: #5b6572;
+      margin-bottom: 4px;
+    }
+
+    .track-result-meta .track-id {
+      font-weight: 600;
+      color: #0b3954;
+    }
+
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .timeline-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+
+    .timeline-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: #cdd7e0;
+      z-index: 0;
+    }
+
+    .timeline-step.completed:not(:last-child)::after {
+      background-color: #0b3954;
+    }
+
+    .timeline-dot {
+      width: 32px;
+      height: 32px;
+      background-color: #ffffff;
+      border: 2px solid #cdd7e0;
+      color: #5b6572;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 auto 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-step.completed .timeline-dot {
+      background-color: #0b3954;
+      border-color: #0b3954;
+      color: #ffffff;
+    }
+
+    .timeline-step.active .timeline-dot {
+      background-color: #eaf3f8;
+      border-color: #0b3954;
+      color: #0b3954;
+    }
+
+    .timeline-step p {
+      font-size: 13px;
+      font-weight: 600;
+      color: #5b6572;
+    }
+
+    .timeline-step.completed p,
+    .timeline-step.active p {
+      color: #0b3954;
+    }
+
+    /* ===== Registration screen ===== */
+    .registration-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #eaf3f8 0%, #f7f9fb 100%);
+      padding: 40px 24px;
+    }
+
+    .registration-box {
+      width: 100%;
+      max-width: 420px;
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .registration-box .logo {
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .registration-box h2 {
+      font-size: 24px;
+      color: #0b3954;
+      text-align: center;
+      margin: 18px 0 6px;
+    }
+
+    .registration-box .reg-subtitle {
+      text-align: center;
+      color: #5b6572;
+      font-size: 14.5px;
+      margin-bottom: 28px;
+    }
+
+    .registration-box .form-group input {
+      width: 100%;
+      font-family: inherit;
+      font-size: 14.5px;
+      color: #1f2a37;
+      background-color: #f7f9fb;
+      border: 1px solid #cdd7e0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    .registration-box .form-group input:focus {
+      outline: none;
+      border-color: #0b3954;
+    }
+
+    #registration-form .btn-primary {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 6px;
+    }
+
+    .reg-message {
+      display: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .reg-message.error {
+      background-color: #fbeaea;
+      color: #a13333;
+    }
+
+    .reg-message.success {
+      background-color: #dff3e8;
+      color: #1a7f4e;
+    }
+
+    /* ===== Citizen / Admin auth tabs (registration screen) ===== */
+    .auth-tabs {
+      display: flex;
+      gap: 6px;
+      background-color: #eef2f6;
+      border-radius: 8px;
+      padding: 4px;
+      margin: 18px 0 26px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      border: none;
+      background: none;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #5b6572;
+      padding: 9px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .auth-tab.active {
+      background-color: #ffffff;
+      color: #0b3954;
+      box-shadow: 0 1px 3px rgba(11, 57, 84, 0.14);
+    }
+
+    .auth-panel {
+      display: none;
+    }
+
+    .auth-panel.active {
+      display: block;
+    }
+
+    #admin-login-form .btn-primary {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 6px;
+    }
+
+    /* ===== Call to action section ===== */
+    .cta {
+      background-color: #0b3954;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      color: #a9c2d3;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      font-size: 16px;
+    }
+
+    .cta .btn-primary {
+      background-color: #ffffff;
+      color: #0b3954;
+    }
+
+    .cta .btn-primary:hover {
+      background-color: #e8eef2;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background-color: #0a2e42;
+      color: #a9c2d3;
+      padding: 50px 24px 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+
+    .footer-grid h4 {
+      color: #ffffff;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .footer-grid li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .footer-grid li a:hover {
+      color: #ffffff;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      margin-top: 12px;
+      max-width: 280px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #163d54;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #7c98aa;
+    }
+
+    /* ===== Citizen Dashboard section ===== */
+    .citizen-dashboard {
+      background-color: #ffffff;
+    }
+
+    .dashboard-empty {
+      text-align: center;
+      color: #5b6572;
+      font-size: 14.5px;
+      padding: 40px 20px;
+      background-color: #f7f9fb;
+      border: 1px dashed #cdd7e0;
+      border-radius: 12px;
+    }
+
+    .dashboard-issue-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .dashboard-issue-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .dashboard-issue-id {
+      font-weight: 700;
+      color: #0b3954;
+      font-size: 15px;
+    }
+
+    .dashboard-issue-meta p {
+      font-size: 13.5px;
+      color: #5b6572;
+      margin-bottom: 4px;
+    }
+
+    .dashboard-issue-meta strong {
+      color: #0b3954;
+    }
+
+    .dashboard-issue-actions {
+      margin-top: 16px;
+      text-align: right;
+    }
+
+    .dashboard-issue-actions .btn-secondary {
+      padding: 8px 20px;
+      font-size: 13.5px;
+      display: inline-block;
+      cursor: pointer;
+      border: 1px solid #cdd7e0;
+    }
+
+    .status-neutral {
+      background-color: #eaf3f8;
+      color: #0b3954;
+    }
+
+    /* ===== Civic Infrastructure Status section ===== */
+    .civic-status {
+      background-color: #ffffff;
+    }
+
+    .civic-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .civic-summary-card {
+      background-color: #f7f9fb;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .civic-summary-card h3 {
+      font-size: 30px;
+      color: #0b3954;
+      margin-bottom: 6px;
+    }
+
+    .civic-summary-card p {
+      color: #5b6572;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .civic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .civic-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 26px;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .civic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(11, 57, 84, 0.08);
+    }
+
+    .civic-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .civic-card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .civic-card-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #eaf3f8;
+      color: #0b3954;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+
+    .civic-card h3 {
+      font-size: 16.5px;
+      color: #0b3954;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .status-good {
+      background-color: #dff3e8;
+      color: #1a7f4e;
+    }
+
+    .status-attention {
+      background-color: #fff4dd;
+      color: #a5690a;
+    }
+
+    .status-critical {
+      background-color: #fbeaea;
+      color: #a13333;
+    }
+
+    .civic-card-total {
+      color: #5b6572;
+      font-size: 13.5px;
+      margin: 10px 0 16px;
+    }
+
+    .civic-card-total strong {
+      color: #0b3954;
+    }
+
+    .civic-card-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      border-top: 1px solid #eef2f6;
+      padding-top: 16px;
+    }
+
+    .civic-stat-item {
+      text-align: center;
+    }
+
+    .civic-stat-item .civic-stat-num {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b3954;
+    }
+
+    .civic-stat-item .civic-stat-label {
+      font-size: 11px;
+      color: #5b6572;
+    }
+
+    /* ===== Analytics (inside Admin Dashboard) ===== */
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .analytics-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 26px;
+    }
+
+    .analytics-card h3 {
+      font-size: 16px;
+      color: #0b3954;
+      margin-bottom: 20px;
+    }
+
+    .bar-chart-row {
+      margin-bottom: 16px;
+    }
+
+    .bar-chart-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .bar-chart-row-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12.5px;
+      color: #5b6572;
+      margin-bottom: 6px;
+    }
+
+    .bar-chart-row-top strong {
+      color: #0b3954;
+    }
+
+    .bar-track {
+      height: 10px;
+      background-color: #eef2f6;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background-color: #0b3954;
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .bar-fill.pending {
+      background-color: #a5690a;
+    }
+
+    .bar-fill.resolved {
+      background-color: #1a7f4e;
+    }
+
+    .analytics-demo-note {
+      display: none;
+      margin-top: 16px;
+      font-size: 11.5px;
+      color: #8a94a1;
+      font-style: italic;
+    }
+
+    .analytics-donut-wrap {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .analytics-donut {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: conic-gradient(#1a7f4e var(--resolved-deg, 0deg), #dfe6ec var(--resolved-deg, 0deg) 360deg);
+    }
+
+    .analytics-donut::after {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+
+    .analytics-donut-center {
+      position: absolute;
+      inset: 16px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .analytics-donut-center strong {
+      font-size: 19px;
+      color: #0b3954;
+    }
+
+    .analytics-donut-center span {
+      font-size: 10px;
+      color: #5b6572;
+    }
+
+    .analytics-donut-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #1f2a37;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===== Admin Dashboard section ===== */
+    .admin-dashboard {
+      background-color: #eef2f6;
+    }
+
+    .admin-locked {
+      max-width: 460px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 44px 32px;
+      text-align: center;
+    }
+
+    .admin-locked-icon {
+      width: 52px;
+      height: 52px;
+      background-color: #eaf3f8;
+      color: #0b3954;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 16px;
+    }
+
+    .admin-locked h3 {
+      font-size: 18px;
+      color: #0b3954;
+      margin-bottom: 8px;
+    }
+
+    .admin-locked p {
+      color: #5b6572;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .admin-locked .btn-primary {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-block;
+    }
+
+    .admin-issue-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .admin-issue-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .admin-issue-id-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .admin-issue-id-group .admin-issue-citizen {
+      font-size: 13px;
+      color: #5b6572;
+    }
+
+    .admin-issue-meta p {
+      font-size: 13.5px;
+      color: #5b6572;
+      margin-bottom: 4px;
+    }
+
+    .admin-issue-meta strong {
+      color: #0b3954;
+    }
+
+    .admin-issue-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .admin-status-select {
+      font-family: inherit;
+      font-size: 13.5px;
+      color: #1f2a37;
+      background-color: #f7f9fb;
+      border: 1px solid #cdd7e0;
+      border-radius: 8px;
+      padding: 9px 10px;
+    }
+
+    .admin-issue-actions .btn-secondary,
+    .admin-issue-actions .btn-primary {
+      padding: 8px 20px;
+      font-size: 13.5px;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .admin-issue-actions .btn-secondary {
+      border: 1px solid #cdd7e0;
+    }
+
+    .admin-empty {
+      text-align: center;
+      color: #5b6572;
+      font-size: 14.5px;
+      padding: 40px 20px;
+      background-color: #ffffff;
+      border: 1px dashed #cdd7e0;
+      border-radius: 12px;
+    }
+
+    /* ===== Admin "View details" modal ===== */
+    .admin-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(11, 57, 84, 0.55);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .admin-modal-overlay.open {
+      display: flex;
+    }
+
+    .admin-modal-box {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      max-height: 85vh;
+      overflow-y: auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .admin-modal-box h3 {
+      color: #0b3954;
+      font-size: 18px;
+      margin-bottom: 18px;
+      padding-right: 24px;
+    }
+
+    .admin-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      border: none;
+      background: none;
+      font-size: 22px;
+      line-height: 1;
+      color: #5b6572;
+      cursor: pointer;
+    }
+
+    .admin-modal-close:hover {
+      color: #0b3954;
+    }
+
+    .admin-modal-body p {
+      font-size: 13.5px;
+      color: #5b6572;
+      margin-bottom: 10px;
+    }
+
+    .admin-modal-body strong {
+      color: #0b3954;
+    }
+
+    .admin-modal-photo {
+      display: block;
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 4px 0 16px;
+      border: 1px solid #e5e9ee;
+    }
+
+    /* ===== Admin modal: status update control ===== */
+    .admin-status-update {
+      margin-top: 6px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e9ee;
+    }
+
+    .admin-status-update label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0b3954;
+      margin-bottom: 8px;
+    }
+
+    .admin-status-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .admin-status-row select {
+      flex: 1;
+      font-family: inherit;
+      font-size: 13.5px;
+      color: #1f2a37;
+      background-color: #f7f9fb;
+      border: 1px solid #cdd7e0;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .admin-status-row button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      background-color: #0b3954;
+      color: #ffffff;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .admin-status-row button:hover {
+      background-color: #094a70;
+    }
+
+    .admin-status-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #1a7f4e;
+      display: none;
+    }
+
+    .admin-status-note.show {
+      display: block;
+    }
+
+    /* ===== Notification bell & panel ===== */
+    .notif-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      margin-left: 32px;
+      margin-right: 20px;
+    }
+
+    .notif-bell-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #e5e9ee;
+      background-color: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      cursor: pointer;
+      color: #0b3954;
+      transition: background-color 0.2s ease;
+    }
+
+    .notif-bell-btn:hover {
+      background-color: #eef2f6;
+    }
+
+    .notif-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      background-color: #c0392b;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 700;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      display: none;
+    }
+
+    .notif-badge.show {
+      display: flex;
+    }
+
+    .notif-panel {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 340px;
+      max-height: 420px;
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(11, 57, 84, 0.16);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .notif-panel.open {
+      display: flex;
+    }
+
+    .notif-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid #e5e9ee;
+      flex-shrink: 0;
+    }
+
+    .notif-panel-header h4 {
+      font-size: 15px;
+      color: #0b3954;
+    }
+
+    .notif-mark-all {
+      background: none;
+      border: none;
+      color: #0b3954;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+    }
+
+    .notif-mark-all:hover {
+      text-decoration: underline;
+    }
+
+    .notif-list {
+      overflow-y: auto;
+    }
+
+    .notif-item {
+      display: flex;
+      gap: 10px;
+      padding: 14px 18px;
+      border-bottom: 1px solid #f0f3f6;
+      cursor: pointer;
+      background-color: #f7fbff;
+    }
+
+    .notif-item:last-child {
+      border-bottom: none;
+    }
+
+    .notif-item:hover {
+      background-color: #eef2f6;
+    }
+
+    .notif-item.read {
+      background-color: #ffffff;
+    }
+
+    .notif-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #0b3954;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .notif-item.read .notif-dot {
+      background-color: transparent;
+    }
+
+    .notif-item-content p {
+      font-size: 13.5px;
+      color: #1f2a37;
+      margin-bottom: 4px;
+    }
+
+    .notif-item.read .notif-item-content p {
+      color: #5b6572;
+    }
+
+    .notif-item-time {
+      font-size: 11.5px;
+      color: #8a94a1;
+    }
+
+    .notif-empty {
+      padding: 32px 18px;
+      text-align: center;
+      color: #5b6572;
+      font-size: 13.5px;
+    }
+
+    /* ===== Responsive layout ===== */
+    /* ===== Priority badges (AI Issue Priority Detection) ===== */
+    .priority-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 20px;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+
+    .priority-critical {
+      background-color: #fbeaea;
+      color: #a13333;
+    }
+
+    .priority-high {
+      background-color: #fdeee0;
+      color: #b35c00;
+    }
+
+    .priority-medium {
+      background-color: #fff4dd;
+      color: #a5690a;
+    }
+
+    .priority-low {
+      background-color: #eaf3f8;
+      color: #2a6f97;
+    }
+
+    .dept-chip {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 20px;
+      background-color: #eef2f6;
+      color: #0b3954;
+      white-space: nowrap;
+    }
+
+    .escalation-chip {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 20px;
+      background-color: #a13333;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .sla-line {
+      font-size: 12.5px;
+      color: #5b6572;
+      margin-top: 4px;
+    }
+
+    .sla-line.overdue {
+      color: #a13333;
+      font-weight: 700;
+    }
+
+    .meta-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    /* ===== Voice Assistant ===== */
+    .voice-assist-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background-color: #eaf3f8;
+      border: 1px solid #cfe3ee;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+
+    .voice-assist-copy h4 {
+      color: #0b3954;
+      font-size: 15.5px;
+      margin-bottom: 3px;
+    }
+
+    .voice-assist-copy p {
+      color: #5b6572;
+      font-size: 13px;
+    }
+
+    .voice-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #0b3954;
+      color: #ffffff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease;
+    }
+
+    .voice-btn:hover {
+      background-color: #094a70;
+    }
+
+    .voice-btn.listening {
+      background-color: #a13333;
+      animation: voicePulse 1.2s infinite;
+    }
+
+    @keyframes voicePulse {
+      0% { box-shadow: 0 0 0 0 rgba(161, 51, 51, 0.45); }
+      70% { box-shadow: 0 0 0 12px rgba(161, 51, 51, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(161, 51, 51, 0); }
+    }
+
+    .voice-transcript-box {
+      display: none;
+      background-color: #ffffff;
+      border: 1px dashed #cdd7e0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 24px;
+      font-size: 13.5px;
+      color: #1f2a37;
+    }
+
+    .voice-transcript-box.show {
+      display: block;
+    }
+
+    .voice-transcript-box strong {
+      color: #0b3954;
+    }
+
+    .voice-unsupported-note {
+      display: none;
+      font-size: 12.5px;
+      color: #a5690a;
+      margin-top: 6px;
+    }
+
+    /* ===== Location pinning ===== */
+    .location-pin-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .location-pin-btn {
+      background-color: #ffffff;
+      color: #0b3954;
+      border: 1px solid #cdd7e0;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .location-pin-btn:hover {
+      background-color: #eef2f6;
+    }
+
+    .location-pin-status {
+      font-size: 12.5px;
+      color: #5b6572;
+    }
+
+    .location-pin-status.ok {
+      color: #1a7f4e;
+      font-weight: 600;
+    }
+
+    .location-preview {
+      display: none;
+      margin-top: 10px;
+      background-color: #f7f9fb;
+      border: 1px solid #e5e9ee;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: #5b6572;
+    }
+
+    .location-preview.show {
+      display: block;
+    }
+
+    /* ===== Interactive Civic Issue Map ===== */
+    .civic-map {
+      background-color: #f7f9fb;
+    }
+
+    .map-frame {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      background-color: #e5edf2;
+      background-image:
+        linear-gradient(rgba(11,57,84,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11,57,84,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      border-radius: 14px;
+      border: 1px solid #e5e9ee;
+      overflow: hidden;
+    }
+
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -100%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50% 50% 50% 0;
+      transform-origin: center;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(11,57,84,0.35);
+    }
+
+    .map-pin.pin-critical { background-color: #a13333; }
+    .map-pin.pin-high { background-color: #b35c00; }
+    .map-pin.pin-medium { background-color: #a5690a; }
+    .map-pin.pin-low { background-color: #2a6f97; }
+    .map-pin.pin-resolved { background-color: #1a7f4e; }
+
+    .map-pin:hover .map-tooltip {
+      display: block;
+    }
+
+    .map-tooltip {
+      display: none;
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      background-color: #0b3954;
+      color: #ffffff;
+      font-size: 11.5px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      z-index: 5;
+    }
+
+    .map-tooltip {
+      transform: translateX(-50%);
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 18px;
+      font-size: 12.5px;
+      color: #5b6572;
+    }
+
+    .map-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .map-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .map-empty-note {
+      text-align: center;
+      color: #5b6572;
+      font-size: 13px;
+      padding: 10px 0 0;
+    }
+
+    /* ===== Area-wise Civic Hotspots ===== */
+    .hotspot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .hotspot-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e9ee;
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+
+    .hotspot-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .hotspot-card-top h4 {
+      color: #0b3954;
+      font-size: 14.5px;
+    }
+
+    .hotspot-count {
+      font-weight: 700;
+      color: #0b3954;
+      font-size: 15px;
+    }
+
+    .hotspot-meta {
+      font-size: 12px;
+      color: #5b6572;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ===== Citizen feedback ===== */
+    .feedback-box {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed #e5e9ee;
+    }
+
+    .feedback-box h5 {
+      color: #0b3954;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .star-row {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .star-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #cdd7e0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .star-btn.active {
+      color: #f0a500;
+    }
+
+    .feedback-box textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 13px;
+      border: 1px solid #cdd7e0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      resize: vertical;
+      min-height: 50px;
+      margin-bottom: 8px;
+    }
+
+    .feedback-submitted-note {
+      font-size: 12.5px;
+      color: #1a7f4e;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1200px) {
+      nav {
+        padding: 16px 20px;
+        gap: 16px;
+      }
+
+      .logo {
+        margin-right: 20px;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .notif-wrapper {
+        margin-left: 16px;
+        margin-right: 12px;
+      }
+
+      .nav-cta {
+        padding: 10px 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .stats-grid,
+      .feature-grid,
+      .steps,
+      .civic-summary-grid,
+      .civic-grid,
+      .analytics-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .report-form {
+        padding: 26px;
+      }
+
+      .track-box {
+        padding: 26px;
+      }
+
+      .dashboard-issue-top {
+        flex-direction: column;
+      }
+
+      .dashboard-issue-actions {
+        text-align: left;
+      }
+
+      .priority-badges-row,
+      .voice-assist-box,
+      .location-pin-box {
+        flex-direction: column;
+      }
+
+      .hotspot-grid,
+      .map-legend {
+        grid-template-columns: 1fr;
+      }
+
+      .notif-panel {
+        width: 92vw;
+        right: -60px;
+      }
+
+      .admin-issue-top {
+        flex-direction: column;
+      }
+
+      .admin-issue-actions {
+        justify-content: flex-start;
+      }
+
+      .track-input-group {
+        flex-direction: column;
+      }
+
+      .timeline {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .timeline-step {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 12px;
+      }
+
+      .timeline-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .timeline-dot {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Registration screen (shown first) ===== -->
+  <div class="registration-screen" id="registration-screen">
+    <div class="registration-box">
+      <div class="logo">
+        <div class="logo-icon">◆</div>
+        Urban_X
+      </div>
+
+      <div class="auth-tabs" id="auth-tabs">
+        <button type="button" class="auth-tab active" id="auth-tab-citizen" data-tab="citizen">Citizen</button>
+        <button type="button" class="auth-tab" id="auth-tab-admin" data-tab="admin">Admin</button>
+      </div>
+
+      <!-- ===== Citizen registration (existing form, unchanged) ===== -->
+      <div class="auth-panel active" id="auth-panel-citizen">
+        <h2>Create your account</h2>
+        <p class="reg-subtitle">Register to report and track civic issues in your city.</p>
+
+        <div class="reg-message" id="reg-message"></div>
+
+        <form id="registration-form">
+          <div class="form-group">
+            <label for="reg-fullname">Full name</label>
+            <input type="text" id="reg-fullname" name="reg-fullname" placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email">Email</label>
+            <input type="text" id="reg-email" name="reg-email" placeholder="you@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password">Password</label>
+            <div class="password-field">
+              <input type="password" id="reg-password" name="reg-password" placeholder="Create a password">
+              <button type="button" class="password-toggle-btn" data-target="reg-password" aria-label="Show password">
+                <svg class="eye-icon eye-icon-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-icon eye-icon-hide" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.8 21.8 0 0 1-3.22 4.36M14.12 14.12a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-confirm-password">Confirm password</label>
+            <div class="password-field">
+              <input type="password" id="reg-confirm-password" name="reg-confirm-password" placeholder="Re-enter your password">
+              <button type="button" class="password-toggle-btn" data-target="reg-confirm-password" aria-label="Show password">
+                <svg class="eye-icon eye-icon-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-icon eye-icon-hide" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.8 21.8 0 0 1-3.22 4.36M14.12 14.12a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">Create an account</button>
+        </form>
+      </div>
+
+      <!-- ===== Admin login (new — separate access flow, same screen) ===== -->
+      <div class="auth-panel" id="auth-panel-admin">
+        <h2>Admin login</h2>
+        <p class="reg-subtitle">For city administrators managing complaints and analytics.</p>
+
+        <div class="reg-message" id="admin-login-message"></div>
+
+        <form id="admin-login-form">
+          <div class="form-group">
+            <label for="admin-username">Admin ID</label>
+            <input type="text" id="admin-username" name="admin-username" placeholder="Enter Admin ID">
+          </div>
+
+          <div class="form-group">
+            <label for="admin-password">Password</label>
+            <div class="password-field">
+              <input type="password" id="admin-password" name="admin-password" placeholder="Enter admin password">
+              <button type="button" class="password-toggle-btn" data-target="admin-password" aria-label="Show password">
+                <svg class="eye-icon eye-icon-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg class="eye-icon eye-icon-hide" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.8 21.8 0 0 1 5.06-6.06M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.8 21.8 0 0 1-3.22 4.36M14.12 14.12a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">Log in as Admin</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Main SmartCI website (hidden until registration succeeds) ===== -->
+  <div id="main-site" style="display: none;">
+
+  <!-- ===== Header ===== -->
+  <header>
+    <nav>
+      <div class="logo">
+        <div class="logo-icon">◆</div>
+        Urban_X
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#report-issue">Report an issue</a></li>
+        <li><a href="#citizen-dashboard">Dashboard</a></li>
+        <li><a href="#admin-dashboard">Admin</a></li>
+        <li><a href="#civic-status">Civic status</a></li>
+        <li><a href="#civic-map">Issue map</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="notif-wrapper" id="notif-wrapper">
+        <button type="button" class="notif-bell-btn" id="notif-bell-btn" aria-label="Notifications">
+          🔔
+          <span class="notif-badge" id="notif-badge">0</span>
+        </button>
+        <div class="notif-panel" id="notif-panel">
+          <div class="notif-panel-header">
+            <h4>Notifications</h4>
+            <button type="button" class="notif-mark-all" id="notif-mark-all-btn">Mark all as read</button>
+          </div>
+          <div class="notif-list" id="notif-list">
+            <div class="notif-empty">No new notifications</div>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta">Request a demo</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">● Live in 40+ cities</span>
+      <h1>Smarter infrastructure for safer, more connected cities</h1>
+      <p>Urban_X gives city teams real-time visibility into roads, utilities, and public assets — so problems get fixed before residents even notice them.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Request a demo</a>
+        <a href="#features" class="btn-secondary">Explore features</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div>
+          <h3>40+</h3>
+          <p>Cities connected</p>
+        </div>
+        <div>
+          <h3>12,000</h3>
+          <p>Sensors deployed</p>
+        </div>
+        <div>
+          <h3>98%</h3>
+          <p>Uptime reliability</p>
+        </div>
+        <div>
+          <h3>35%</h3>
+          <p>Faster response time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Everything a city needs, in one platform</h2>
+        <p>Monitor, manage, and maintain the systems your community depends on every day.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Smart utilities</h3>
+          <p>Track power, water, and gas usage in real time to catch leaks and outages early.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚦</div>
+          <h3>Traffic management</h3>
+          <p>Adaptive traffic signals that respond to real congestion, not fixed timers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛣️</div>
+          <h3>Road & asset health</h3>
+          <p>Automatically flag potholes, damaged signage, and infrastructure wear.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌳</div>
+          <h3>Environmental sensors</h3>
+          <p>Monitor air quality, noise, and flood risk across every neighborhood.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Live dashboards</h3>
+          <p>Give city staff a single, clear view of everything happening across town.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>Instant alerts</h3>
+          <p>Automatic notifications the moment something needs a team's attention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-title">
+        <h2>How Urban_X works</h2>
+        <p>From sensor to solution in three simple steps.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Sensors collect data</h3>
+          <p>IoT devices across the city continuously monitor infrastructure health.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Platform analyzes it</h3>
+          <p>Urban_X turns raw data into clear insights and priority alerts.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Teams take action</h3>
+          <p>City staff get the right information, right when they need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Report an issue ===== -->
+  <section class="report-issue" id="report-issue">
+    <div class="container">
+      <div class="section-title">
+        <h2>Report an issue</h2>
+        <p>Spot a problem in your neighborhood? Let us know and our team will route it to the right department.</p>
+      </div>
+
+      <!-- ===== Voice Assistant / Speak to SmartCI ===== -->
+      <div class="voice-assist-box">
+        <div class="voice-assist-copy">
+          <h4>🎙️ Speak to Urban_X</h4>
+          <p>Say something like "There is a large pothole near my college" — we'll help fill the form below.</p>
+        </div>
+        <button type="button" class="voice-btn" id="voice-assist-btn">🎤 Voice Assistant</button>
+      </div>
+      <div class="voice-transcript-box" id="voice-transcript-box">
+        <strong>Heard:</strong> <span id="voice-transcript-text"></span>
+        <p id="voice-transcript-hint" style="margin-top:8px; color:#5b6572;">Review the fields below and edit anything before submitting.</p>
+      </div>
+      <p class="voice-unsupported-note" id="voice-unsupported-note">Voice input isn't supported in this browser — please use the text form below.</p>
+
+      <form class="report-form" id="report-form">
+        <div class="form-group">
+          <label for="issue-category">Issue category</label>
+          <select id="issue-category" name="issue-category" required>
+            <option value="" disabled selected>Select a category</option>
+            <option value="roads">Roads & potholes</option>
+            <option value="utilities">Utilities (power, water, gas)</option>
+            <option value="traffic">Traffic signals</option>
+            <option value="environment">Environment & sanitation</option>
+            <option value="street-lighting">Street lighting</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="issue-description">Description</label>
+          <textarea id="issue-description" name="issue-description" placeholder="Describe the issue in a few sentences" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="issue-location">Location</label>
+          <input type="text" id="issue-location" name="issue-location" placeholder="Street address or nearest landmark" required>
+          <div class="location-pin-box">
+            <button type="button" class="location-pin-btn" id="use-location-btn">📍 Use My Location</button>
+            <span class="location-pin-status" id="location-pin-status"></span>
+          </div>
+          <div class="location-preview" id="location-preview"></div>
+          <input type="hidden" id="issue-lat" name="issue-lat">
+          <input type="hidden" id="issue-lng" name="issue-lng">
+        </div>
+
+        <div class="form-group">
+          <label for="issue-photo">Photo (optional)</label>
+          <div class="file-upload">
+            <label for="issue-photo">Choose file</label>
+            <input type="file" id="issue-photo" name="issue-photo" accept="image/*">
+            <p>PNG or JPG, up to 10MB</p>
+          </div>
+          <div class="location-preview" id="photo-preview"></div>
+        </div>
+
+        <button type="submit" class="btn-primary">Submit report</button>
+      </form>
+
+      <div class="report-success" id="report-success">
+        <div class="success-icon">✓</div>
+        <h3>Issue reported successfully!</h3>
+        <p>Thanks for helping improve your community. Your report has been logged.</p>
+        <div class="issue-id" id="issue-id-display">Issue ID: SCI-000000</div>
+        <div class="meta-chip-row" id="report-success-chips"></div>
+
+        <br>
+        <button type="button" class="btn-secondary" id="report-another-btn">Report another issue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Citizen Dashboard ===== -->
+  <section class="citizen-dashboard" id="citizen-dashboard">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="dashboard-welcome">Welcome!</h2>
+        <p>A summary of the civic issues you've reported.</p>
+      </div>
+
+      <div class="civic-summary-grid" id="dashboard-summary-grid">
+        <!-- Populated by JavaScript from this citizen's saved issues -->
+      </div>
+
+      <div class="section-title" style="margin-bottom: 24px;">
+        <h2 style="font-size: 22px;">My reported issues</h2>
+      </div>
+
+      <div id="dashboard-issues-list">
+        <!-- Populated by JavaScript from this citizen's saved issues -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Track your issue ===== -->
+  <section class="track-issue" id="track-issue">
+    <div class="container">
+      <div class="section-title">
+        <h2>Track your issue</h2>
+        <p>Already submitted a report? Enter your Issue ID to see its current status.</p>
+      </div>
+      <div class="track-box">
+        <div class="track-input-group">
+          <input type="text" id="track-id-input" placeholder="e.g. SCI-482913">
+          <button type="button" class="btn-primary" id="track-issue-btn">Track issue</button>
+        </div>
+        <p class="track-hint">Demo IDs to try: SCI-482913, SCI-201045, SCI-119988, SCI-305567</p>
+
+        <div class="track-not-found" id="track-not-found">Issue ID not found. Please double-check and try again.</div>
+
+        <div class="track-result" id="track-result">
+          <div class="track-result-meta">
+            <p><span class="track-id" id="track-result-id">SCI-000000</span></p>
+            <p id="track-result-category">Category: —</p>
+            <p id="track-result-location">Location: —</p>
+            <div class="meta-chip-row" id="track-result-chips"></div>
+            <p id="track-result-sla" class="sla-line"></p>
+            <div id="track-result-photo"></div>
+          </div>
+          <div class="timeline" id="track-timeline">
+            <div class="timeline-step" data-step="0">
+              <div class="timeline-dot">1</div>
+              <p>Submitted</p>
+            </div>
+            <div class="timeline-step" data-step="1">
+              <div class="timeline-dot">2</div>
+              <p>Under review</p>
+            </div>
+            <div class="timeline-step" data-step="2">
+              <div class="timeline-dot">3</div>
+              <p>In progress</p>
+            </div>
+            <div class="timeline-step" data-step="3">
+              <div class="timeline-dot">4</div>
+              <p>Resolved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Civic Infrastructure Status ===== -->
+  <section class="civic-status" id="civic-status">
+    <div class="container">
+      <div class="section-title">
+        <h2>Civic Infrastructure Status</h2>
+        <p>A live snapshot of how infrastructure issues are being tracked and resolved across the city.</p>
+      </div>
+
+      <div class="civic-summary-grid" id="civic-summary-grid">
+        <!-- Populated by JavaScript from the demo civic data below -->
+      </div>
+
+      <div class="civic-grid" id="civic-grid">
+        <!-- Populated by JavaScript from the demo civic data below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Interactive Civic Issue Map ===== -->
+  <section class="civic-map" id="civic-map">
+    <div class="container">
+      <div class="section-title">
+        <h2>Interactive Civic Issue Map</h2>
+        <p>Every reported issue, plotted by priority and status. Hover a pin for details.</p>
+      </div>
+      <div class="map-frame" id="map-frame">
+        <!-- Populated by JavaScript from the same issue data used everywhere else -->
+      </div>
+      <div class="map-legend">
+        <div class="map-legend-item"><span class="map-legend-dot" style="background-color:#a13333;"></span>Critical</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background-color:#b35c00;"></span>High</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background-color:#a5690a;"></span>Medium</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background-color:#2a6f97;"></span>Low</div>
+        <div class="map-legend-item"><span class="map-legend-dot" style="background-color:#1a7f4e;"></span>Resolved</div>
+      </div>
+      <p class="map-empty-note" id="map-empty-note" style="display:none;">No issues reported yet — submit one to see it appear here.</p>
+    </div>
+  </section>
+
+  <!-- ===== Admin Dashboard (separate from the Citizen Dashboard above) ===== -->
+  <section class="admin-dashboard" id="admin-dashboard">
+    <div class="container">
+      <div class="section-title">
+        <h2>Admin Dashboard</h2>
+        <p>Every issue reported by every citizen, in one place.</p>
+      </div>
+
+      <!-- ===== Access protection: shown instead of the dashboard below ===== -->
+      <!-- ===== when the signed-in user is a Citizen, not an Admin.     ===== -->
+      <div class="admin-locked" id="admin-locked-message" style="display: none;">
+        <div class="admin-locked-icon">🔒</div>
+        <h3>Admin access required</h3>
+        <p>This area is for city administrators only. You're currently signed in as a citizen.</p>
+        <button type="button" class="btn-primary" id="admin-locked-login-btn">Log in as Admin</button>
+      </div>
+
+      <div id="admin-dashboard-content">
+
+      <div class="civic-summary-grid" id="admin-summary-grid">
+        <!-- Populated by JavaScript from ALL saved issues -->
+      </div>
+
+      <!-- ===== Analytics (new — reads from the same issue data as the ===== -->
+      <!-- ===== summary cards and issue list above) ===== -->
+      <div class="section-title" style="margin-bottom: 24px;">
+        <h2 style="font-size: 22px;">Analytics</h2>
+        <p>A live snapshot of complaint volume, category breakdown, and resolution progress.</p>
+      </div>
+
+      <div class="civic-summary-grid" id="analytics-summary-grid">
+        <!-- Populated by JavaScript: Total / Pending / Under Review / In Progress / Resolved -->
+      </div>
+
+      <div class="analytics-grid">
+        <div class="analytics-card">
+          <h3>Category-wise Issues</h3>
+          <div id="analytics-category-chart">
+            <!-- Populated by JavaScript -->
+          </div>
+          <p class="analytics-demo-note" id="analytics-category-note">Showing sample demo data — submit a complaint to see live numbers here.</p>
+        </div>
+
+        <div class="analytics-card">
+          <h3>Pending vs Resolved</h3>
+          <div id="analytics-pending-resolved-chart">
+            <!-- Populated by JavaScript -->
+          </div>
+        </div>
+
+        <div class="analytics-card">
+          <h3>Resolution Statistics</h3>
+          <div class="analytics-donut-wrap">
+            <div class="analytics-donut" id="analytics-donut">
+              <div class="analytics-donut-center" id="analytics-donut-center"></div>
+            </div>
+            <div class="analytics-donut-legend" id="analytics-donut-legend">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-bottom: 8px; margin-top: 56px;">
+        <h2 style="font-size: 22px;">Area-wise Civic Hotspots</h2>
+        <p>Areas generating the most reports, from the same issue data above.</p>
+      </div>
+      <div class="hotspot-grid" id="hotspot-grid">
+        <!-- Populated by JavaScript -->
+      </div>
+
+      <div class="section-title" style="margin-bottom: 24px; margin-top: 56px;">
+        <h2 style="font-size: 22px;">All reported issues</h2>
+      </div>
+
+      <div id="admin-issues-list">
+        <!-- Populated by JavaScript from ALL saved issues -->
+      </div>
+
+      </div>
+      <!-- ===== /admin-dashboard-content ===== -->
+    </div>
+  </section>
+
+  <!-- ===== Admin "View details" modal ===== -->
+  <div class="admin-modal-overlay" id="admin-modal-overlay">
+    <div class="admin-modal-box">
+      <button type="button" class="admin-modal-close" id="admin-modal-close" aria-label="Close">&times;</button>
+      <h3 id="admin-modal-id">SCI-000000</h3>
+      <div class="admin-modal-body" id="admin-modal-body">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Call to action ===== -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Ready to modernize your city?</h2>
+      <p>Talk to our team about bringing smart infrastructure to your community.</p>
+      <a href="#" class="btn-primary">Request a demo</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">◆</div>
+            Urban_X
+          </div>
+          <p>Building the connected infrastructure behind smarter, safer cities.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">hello@urbanx.io</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Urban_X. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  </div>
+  <!-- ===== End of main SmartCI website ===== -->
+  <!-- ===== Report an issue form behavior ===== -->
+  <script>
+    // ===== Password show/hide toggle =====
+    // Works independently for every .password-toggle-btn on the page
+    // (citizen password, citizen confirm password, admin password).
+    // Purely a display toggle — does not touch validation/auth logic.
+    (function setupPasswordToggles() {
+      var toggles = document.querySelectorAll('.password-toggle-btn');
+      toggles.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var targetId = btn.getAttribute('data-target');
+          var input = document.getElementById(targetId);
+          if (!input) return;
+
+          var showIcon = btn.querySelector('.eye-icon-show');
+          var hideIcon = btn.querySelector('.eye-icon-hide');
+          var isHidden = input.type === 'password';
+
+          input.type = isHidden ? 'text' : 'password';
+          btn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+          if (showIcon) showIcon.style.display = isHidden ? 'none' : 'flex';
+          if (hideIcon) hideIcon.style.display = isHidden ? 'flex' : 'none';
+        });
+      });
+    })();
+
+    // Shared across the registration and dashboard/report logic below so the
+    // Citizen Dashboard knows whose issues to show after registration.
+    var currentCitizenName = '';
+
+    // Which role is currently signed in for this session: '' (not signed
+    // in yet), 'citizen', or 'admin'. Not persisted anywhere on purpose —
+    // same lifetime as currentCitizenName above, so a page refresh always
+    // returns to the registration/login screen, just like before.
+    var currentUserRole = '';
+
+    // Shows or hides the real Admin Dashboard content depending on the
+    // signed-in role. Citizens see a simple "Admin access required"
+    // message instead of live complaint data if they land on this
+    // section (e.g. via the Admin nav link).
+    function applyRoleGating() {
+      var lockedMsg = document.getElementById('admin-locked-message');
+      var content = document.getElementById('admin-dashboard-content');
+      if (!lockedMsg || !content) {
+        return;
+      }
+      if (currentUserRole === 'admin') {
+        lockedMsg.style.display = 'none';
+        content.style.display = 'block';
+      } else {
+        lockedMsg.style.display = 'block';
+        content.style.display = 'none';
+      }
+    }
+
+    // ===== Notifications (frontend-only, backed by localStorage) =====
+    // Reuses the exact same persistence pattern as the issue store below
+    // (a single JSON blob in localStorage), keyed per citizen name so each
+    // registered citizen sees only their own notifications. This plugs into
+    // the same events that already exist elsewhere on the page: submitting
+    // a complaint, and an admin changing a complaint's status.
+    var NOTIF_STORAGE_KEY = 'smartci_notifications';
+    var ANNOUNCEMENT_ID = 'NTF-ANNOUNCEMENT-WATER-MAINTENANCE';
+
+    // Admin notifications reuse the exact same per-user bucket structure as
+    // citizen notifications (all[key] = [...]) — they just live under this
+    // fixed key instead of a citizen's name, since there's one shared Admin
+    // Dashboard rather than a name per admin. This is the ONLY new piece of
+    // storage this feature needs; no new table/model.
+    var ADMIN_NOTIF_KEY = '__ADMIN__';
+
+    // Picks which notification bucket the currently logged-in user should
+    // see: the shared Admin bucket for the admin role, or the citizen's own
+    // bucket otherwise. Centralizing this one lookup is what keeps Admin
+    // and Citizen notifications from ever crossing over.
+    function getCurrentNotifKey() {
+      return currentUserRole === 'admin' ? ADMIN_NOTIF_KEY : currentCitizenName;
+    }
+
+    function loadAllNotifications() {
+      try {
+        var raw = window.localStorage.getItem(NOTIF_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveAllNotifications(all) {
+      try {
+        window.localStorage.setItem(NOTIF_STORAGE_KEY, JSON.stringify(all));
+      } catch (e) {
+        // Ignore write failures, same as the issue store.
+      }
+    }
+
+    function getNotificationsFor(citizenName) {
+      var all = loadAllNotifications();
+      return all[citizenName] || [];
+    }
+
+    // Creates a notification for one citizen and re-renders the bell/panel
+    // right away so the change is visible without a page reload.
+    function addNotification(citizenName, message, type, issueId) {
+      var who = citizenName || 'Guest citizen';
+      var all = loadAllNotifications();
+      if (!all[who]) {
+        all[who] = [];
+      }
+      all[who].unshift({
+        id: 'NTF-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+        message: message,
+        type: type,
+        issueId: issueId || null,
+        read: false,
+        timestamp: new Date().toISOString()
+      });
+      saveAllNotifications(all);
+      renderNotifications();
+    }
+
+    // Seeds a single demo civic announcement the first time a citizen is
+    // seen, so the "important civic announcements" requirement has a real
+    // notification to show without needing a separate broadcast system.
+    function seedAnnouncementFor(citizenName) {
+      if (!citizenName) {
+        return;
+      }
+      var all = loadAllNotifications();
+      var list = all[citizenName] || [];
+      var alreadySeeded = list.some(function (n) {
+        return n.id === ANNOUNCEMENT_ID;
+      });
+      if (alreadySeeded) {
+        return;
+      }
+      list.unshift({
+        id: ANNOUNCEMENT_ID,
+        message: 'City Announcement: Scheduled water maintenance in your area this weekend.',
+        type: 'announcement',
+        issueId: null,
+        read: false,
+        timestamp: new Date().toISOString()
+      });
+      all[citizenName] = list;
+      saveAllNotifications(all);
+    }
+
+    function formatNotifTime(isoString) {
+      var d = new Date(isoString);
+      if (isNaN(d.getTime())) {
+        return '';
+      }
+      return d.toLocaleString(undefined, {
+        month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+    }
+
+    var notifBellBtn = document.getElementById('notif-bell-btn');
+    var notifPanel = document.getElementById('notif-panel');
+    var notifBadge = document.getElementById('notif-badge');
+    var notifList = document.getElementById('notif-list');
+    var notifMarkAllBtn = document.getElementById('notif-mark-all-btn');
+    var notifWrapper = document.getElementById('notif-wrapper');
+
+    // Renders both the unread badge count and the dropdown list from
+    // localStorage, so it always reflects the latest state.
+    function renderNotifications() {
+      if (!notifList || !notifBadge) {
+        return;
+      }
+
+      var items = getNotificationsFor(getCurrentNotifKey());
+      var unreadCount = items.filter(function (n) { return !n.read; }).length;
+
+      if (unreadCount > 0) {
+        notifBadge.textContent = unreadCount > 9 ? '9+' : String(unreadCount);
+        notifBadge.classList.add('show');
+      } else {
+        notifBadge.textContent = '0';
+        notifBadge.classList.remove('show');
+      }
+
+      if (items.length === 0) {
+        notifList.innerHTML = '<div class="notif-empty">No new notifications</div>';
+        return;
+      }
+
+      notifList.innerHTML = '';
+      items.forEach(function (n) {
+        var el = document.createElement('div');
+        el.className = 'notif-item' + (n.read ? ' read' : '');
+        el.setAttribute('data-notif-id', n.id);
+        el.innerHTML =
+          '<div class="notif-dot"></div>' +
+          '<div class="notif-item-content">' +
+            '<p>' + n.message + '</p>' +
+            '<span class="notif-item-time">' + formatNotifTime(n.timestamp) + '</span>' +
+          '</div>';
+        notifList.appendChild(el);
+      });
+    }
+
+    // Clicking a single notification marks just that one as read.
+    if (notifList) {
+      notifList.addEventListener('click', function (e) {
+        var itemEl = e.target.closest ? e.target.closest('.notif-item') : null;
+        if (!itemEl) {
+          return;
+        }
+        var id = itemEl.getAttribute('data-notif-id');
+        var key = getCurrentNotifKey();
+        var all = loadAllNotifications();
+        var list = all[key] || [];
+        var changed = false;
+        list.forEach(function (n) {
+          if (n.id === id && !n.read) {
+            n.read = true;
+            changed = true;
+          }
+        });
+        if (changed) {
+          all[key] = list;
+          saveAllNotifications(all);
+          renderNotifications();
+        }
+      });
+    }
+
+    if (notifMarkAllBtn) {
+      notifMarkAllBtn.addEventListener('click', function () {
+        var key = getCurrentNotifKey();
+        var all = loadAllNotifications();
+        var list = all[key] || [];
+        list.forEach(function (n) { n.read = true; });
+        all[key] = list;
+        saveAllNotifications(all);
+        renderNotifications();
+      });
+    }
+
+    if (notifBellBtn && notifPanel) {
+      notifBellBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        notifPanel.classList.toggle('open');
+      });
+    }
+
+    // Clicking anywhere outside the bell/panel closes the panel.
+    document.addEventListener('click', function (e) {
+      if (!notifWrapper || !notifPanel) {
+        return;
+      }
+      if (!notifWrapper.contains(e.target)) {
+        notifPanel.classList.remove('open');
+      }
+    });
+
+    // ----- Registration / login screen (shown first) -----
+    // Wrapped in its own function and DOMContentLoaded listener so this
+    // logic is isolated and cannot be blocked by errors elsewhere on the page.
+    document.addEventListener('DOMContentLoaded', function () {
+      var registrationScreen = document.getElementById('registration-screen');
+      var mainSite = document.getElementById('main-site');
+      var registrationForm = document.getElementById('registration-form');
+      var regMessage = document.getElementById('reg-message');
+
+      var regFullName = document.getElementById('reg-fullname');
+      var regEmail = document.getElementById('reg-email');
+      var regPassword = document.getElementById('reg-password');
+      var regConfirmPassword = document.getElementById('reg-confirm-password');
+
+      // Citizen/Admin tabs and the Admin login form — new access flow,
+      // living on the same registration screen as the existing form above.
+      var authTabCitizen = document.getElementById('auth-tab-citizen');
+      var authTabAdmin = document.getElementById('auth-tab-admin');
+      var authPanelCitizen = document.getElementById('auth-panel-citizen');
+      var authPanelAdmin = document.getElementById('auth-panel-admin');
+      var adminLoginForm = document.getElementById('admin-login-form');
+      var adminLoginMessage = document.getElementById('admin-login-message');
+      var adminUsername = document.getElementById('admin-username');
+      var adminPassword = document.getElementById('admin-password');
+      var adminLockedLoginBtn = document.getElementById('admin-locked-login-btn');
+
+      // If any required element is missing, stop here instead of throwing
+      // an error that could block other scripts on the page.
+      if (!registrationScreen || !mainSite || !registrationForm || !regMessage ||
+          !regFullName || !regEmail || !regPassword || !regConfirmPassword) {
+        return;
+      }
+
+      function showRegMessage(text, type) {
+        regMessage.textContent = text;
+        regMessage.className = 'reg-message ' + type;
+        regMessage.style.display = 'block';
+      }
+
+      function isValidEmail(email) {
+        // Simple, beginner-friendly email format check.
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+      }
+
+      // Reveals the main site and jumps straight to the section that
+      // matches the signed-in role — Citizen Dashboard for citizens,
+      // Admin Dashboard for admins — instead of always landing on the
+      // homepage top.
+      function goToHomepage(targetSectionId) {
+        registrationScreen.style.display = 'none';
+        mainSite.style.display = 'block';
+        var target = targetSectionId ? document.getElementById(targetSectionId) : null;
+        if (target) {
+          target.scrollIntoView();
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
+
+      // Switches between the Citizen and Admin panels on the registration
+      // screen without touching the existing citizen form at all.
+      function switchAuthTab(tab) {
+        if (!authTabCitizen || !authTabAdmin || !authPanelCitizen || !authPanelAdmin) {
+          return;
+        }
+        var showAdmin = tab === 'admin';
+        authTabAdmin.classList.toggle('active', showAdmin);
+        authTabCitizen.classList.toggle('active', !showAdmin);
+        authPanelAdmin.classList.toggle('active', showAdmin);
+        authPanelCitizen.classList.toggle('active', !showAdmin);
+      }
+
+      if (authTabCitizen) {
+        authTabCitizen.addEventListener('click', function () {
+          switchAuthTab('citizen');
+        });
+      }
+      if (authTabAdmin) {
+        authTabAdmin.addEventListener('click', function () {
+          switchAuthTab('admin');
+        });
+      }
+
+      function handleRegistrationSubmit(e) {
+        e.preventDefault();
+
+        var fullName = regFullName.value.trim();
+        var email = regEmail.value.trim();
+        var password = regPassword.value;
+        var confirmPassword = regConfirmPassword.value;
+
+        // Check that all four fields are filled.
+        if (!fullName || !email || !password || !confirmPassword) {
+          showRegMessage('Please fill in all fields to create your account.', 'error');
+          return;
+        }
+
+        // Check that the email format is valid.
+        if (!isValidEmail(email)) {
+          showRegMessage('Please enter a valid email address.', 'error');
+          return;
+        }
+
+        // Check that Password and Confirm Password match.
+        if (password !== confirmPassword) {
+          showRegMessage('Password and Confirm Password do not match.', 'error');
+          return;
+        }
+
+        // All checks passed — simulate a successful registration as a
+        // Citizen and route to the Citizen Dashboard.
+        currentCitizenName = fullName;
+        currentUserRole = 'citizen';
+        showRegMessage('Registration successful! Welcome to Urban_X.', 'success');
+
+        // Give the user a brief moment to see the success message,
+        // then reveal the main SmartCI website at the Citizen Dashboard.
+        setTimeout(function () {
+          goToHomepage('citizen-dashboard');
+          applyRoleGating();
+          renderCitizenDashboard();
+          seedAnnouncementFor(currentCitizenName);
+          renderNotifications();
+        }, 900);
+      }
+
+      // A single submit listener — this is the only handler attached to
+      // this form, so there is no risk of a conflicting duplicate handler.
+      registrationForm.addEventListener('submit', handleRegistrationSubmit);
+
+      // ----- Admin login (separate access flow, same screen) -----
+      // Hardcoded demo credentials — intentionally simple for a hackathon
+      // prototype rather than a full authentication backend. If a real
+      // role field already existed in a database this would check that
+      // instead; since there isn't one, this is the "simple role field"
+      // the access flow needs.
+      var ADMIN_USERNAME = 'admin';
+      var ADMIN_PASSWORD = 'admin123';
+
+      function showAdminLoginMessage(text, type) {
+        if (!adminLoginMessage) {
+          return;
+        }
+        adminLoginMessage.textContent = text;
+        adminLoginMessage.className = 'reg-message ' + type;
+        adminLoginMessage.style.display = 'block';
+      }
+
+      if (adminLoginForm && adminUsername && adminPassword) {
+        adminLoginForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          var usernameValue = adminUsername.value.trim();
+          var passwordValue = adminPassword.value;
+
+          if (!usernameValue || !passwordValue) {
+            showAdminLoginMessage('Please enter both Admin ID and password.', 'error');
+            return;
+          }
+
+          if (usernameValue !== ADMIN_USERNAME || passwordValue !== ADMIN_PASSWORD) {
+            showAdminLoginMessage('Invalid Admin ID or password.', 'error');
+            return;
+          }
+
+          // All checks passed — simulate a successful Admin login and
+          // route to the Admin Dashboard.
+          currentUserRole = 'admin';
+          showAdminLoginMessage('Login successful! Redirecting to Admin Dashboard...', 'success');
+
+          setTimeout(function () {
+            goToHomepage('admin-dashboard');
+            applyRoleGating();
+            renderAdminDashboard();
+            renderNotifications();
+          }, 700);
+        });
+      }
+
+      // From the "Admin access required" lock message shown to Citizens —
+      // signs the current user out and returns to the login screen with
+      // the Admin tab pre-selected, rather than dropping them straight
+      // into the dashboard.
+      if (adminLockedLoginBtn) {
+        adminLockedLoginBtn.addEventListener('click', function () {
+          currentUserRole = '';
+          mainSite.style.display = 'none';
+          registrationScreen.style.display = '';
+          switchAuthTab('admin');
+          window.scrollTo(0, 0);
+        });
+      }
+    });
+
+    var reportForm = document.getElementById('report-form');
+    var reportSuccess = document.getElementById('report-success');
+    var issueIdDisplay = document.getElementById('issue-id-display');
+    var reportAnotherBtn = document.getElementById('report-another-btn');
+
+    // ----- Issue storage (frontend-only, backed by localStorage) -----
+    // This is the single source of truth for both "Report an issue" and
+    // "Track your issue", so an ID generated on submit is always the same
+    // ID accepted by the tracker — including after a page reload, since it
+    // is persisted in localStorage rather than only kept in memory.
+    var ISSUES_STORAGE_KEY = 'smartci_issues';
+
+    function loadStoredIssues() {
+      try {
+        var raw = window.localStorage.getItem(ISSUES_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        // localStorage unavailable (e.g. private browsing) — fall back to
+        // an in-memory object so the app still works for this session.
+        return {};
+      }
+    }
+
+    function saveStoredIssues(issues) {
+      try {
+        window.localStorage.setItem(ISSUES_STORAGE_KEY, JSON.stringify(issues));
+      } catch (e) {
+        // Ignore write failures (e.g. storage full/blocked) — the issue
+        // stays available in memory for the rest of this session.
+      }
+    }
+
+    // ===== AI-style Issue Priority Detection (transparent, rule-based) =====
+    // No external AI API is used — priority is inferred from keywords in the
+    // description (checked in severity order) with a category-based
+    // fallback, so the logic stays fully visible and explainable.
+    var PRIORITY_KEYWORDS = {
+      CRITICAL: ['open manhole', 'manhole', 'live wire', 'exposed wire', 'gas leak', 'gas smell',
+        'sewage overflow', 'flooding', 'collapsed', 'collapse', 'fire', 'explosion', 'electrocut',
+        'burst pipe', 'major leakage', 'large area'],
+      HIGH: ['large pothole', 'big pothole', 'huge pothole', 'major leak', 'water leakage',
+        'no water supply', 'power outage', 'no electricity', 'blocked drain', 'accident',
+        'dangerous', 'deep pothole', 'broken traffic signal', 'signal not working'],
+      MEDIUM: ['broken streetlight', 'street light', 'streetlight', 'pothole', 'leak',
+        'garbage', 'overflowing bin', 'noise', 'stray'],
+      LOW: ['minor', 'small crack', 'faded paint', 'litter', 'request', 'slow response']
+    };
+
+    var CATEGORY_BASE_PRIORITY = {
+      'Roads & potholes': 'HIGH',
+      'Utilities (power, water, gas)': 'HIGH',
+      'Traffic signals': 'MEDIUM',
+      'Environment & sanitation': 'LOW',
+      'Street lighting': 'MEDIUM',
+      'Other': 'LOW'
+    };
+
+    function computeIssuePriority(category, description) {
+      var text = (description || '').toLowerCase();
+      var order = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'];
+      for (var i = 0; i < order.length; i++) {
+        var keywords = PRIORITY_KEYWORDS[order[i]];
+        for (var j = 0; j < keywords.length; j++) {
+          if (text.indexOf(keywords[j]) !== -1) {
+            return order[i];
+          }
+        }
+      }
+      return CATEGORY_BASE_PRIORITY[category] || 'MEDIUM';
+    }
+
+    var PRIORITY_BADGE_CLASS = {
+      CRITICAL: 'priority-critical',
+      HIGH: 'priority-high',
+      MEDIUM: 'priority-medium',
+      LOW: 'priority-low'
+    };
+
+    function priorityBadgeHtml(priority) {
+      var p = priority || 'MEDIUM';
+      return '<span class="priority-badge ' + (PRIORITY_BADGE_CLASS[p] || 'priority-medium') + '">' + p + ' PRIORITY</span>';
+    }
+
+    // ===== Automatic Department Routing =====
+    var CATEGORY_TO_DEPARTMENT = {
+      'Roads & potholes': 'Roads Department',
+      'Street lighting': 'Electrical/Streetlight Department',
+      'Environment & sanitation': 'Sanitation Department',
+      'Utilities (power, water, gas)': 'Water/Utility Department',
+      'Traffic signals': 'Traffic/Public Infrastructure Department',
+      'Other': 'General Civic Department'
+    };
+
+    function computeDepartment(category) {
+      return CATEGORY_TO_DEPARTMENT[category] || 'General Civic Department';
+    }
+
+    function departmentChipHtml(department) {
+      return '<span class="dept-chip">🏢 ' + department + '</span>';
+    }
+
+    // ===== SLA / Resolution deadline ===== These are SmartCI management
+    // targets for this prototype, not real government SLA guarantees.
+    var SLA_HOURS_BY_PRIORITY = { CRITICAL: 24, HIGH: 72, MEDIUM: 168, LOW: 336 };
+
+    function computeDueDate(priority, submittedAtIso) {
+      var hours = SLA_HOURS_BY_PRIORITY[priority] || 168;
+      var start = submittedAtIso ? new Date(submittedAtIso) : new Date();
+      return new Date(start.getTime() + hours * 60 * 60 * 1000).toISOString();
+    }
+
+    // Builds a human-readable SLA line ("3 days left" / "Overdue by 1 day")
+    // for a stored issue. Resolved issues never show as overdue.
+    function slaInfo(issue) {
+      if (!issue || !issue.dueDate) {
+        return { label: '', overdue: false };
+      }
+      if ((issue.step || 0) >= 3) {
+        return { label: 'Resolved before target of ' + formatIssueDate(issue.dueDate), overdue: false };
+      }
+      var due = new Date(issue.dueDate);
+      var now = new Date();
+      var diffMs = due - now;
+      var diffHours = Math.abs(diffMs) / (1000 * 60 * 60);
+      var text = diffHours >= 24
+        ? Math.round(diffHours / 24) + ' day' + (Math.round(diffHours / 24) === 1 ? '' : 's')
+        : Math.max(1, Math.round(diffHours)) + ' hour' + (Math.round(diffHours) === 1 ? '' : 's');
+      if (diffMs < 0) {
+        return { label: 'Overdue by ' + text + ' (Urban_X target: ' + formatIssueDate(issue.dueDate) + ')', overdue: true };
+      }
+      return { label: text + ' left (Urban_X target: ' + formatIssueDate(issue.dueDate) + ')', overdue: false };
+    }
+
+    // ===== Automatic Escalation =====
+    var ESCALATION_LEVEL_LABELS = ['On track', 'Department', 'Senior Officer', 'Admin Escalation'];
+
+    function computeEscalationLevel(issue) {
+      if (!issue || !issue.dueDate || (issue.step || 0) >= 3) {
+        return 0;
+      }
+      var due = new Date(issue.dueDate);
+      var now = new Date();
+      if (now <= due) {
+        return 0;
+      }
+      var slaMs = due - new Date(issue.submittedAt);
+      if (!(slaMs > 0)) {
+        slaMs = 24 * 60 * 60 * 1000;
+      }
+      var overdueRatio = (now - due) / slaMs;
+      if (overdueRatio >= 2) {
+        return 3;
+      }
+      if (overdueRatio >= 1) {
+        return 2;
+      }
+      return 1;
+    }
+
+    // Re-checks every stored issue's escalation level, persists any increase,
+    // and fires exactly one Admin notification per level increase (never
+    // repeats for the same level) — called after load and after any render
+    // of the Admin Dashboard, so overdue issues surface automatically.
+    function runEscalationChecks() {
+      var issues = loadStoredIssues();
+      var changed = false;
+      Object.keys(issues).forEach(function (id) {
+        var issue = issues[id];
+        if (!issue.dueDate) {
+          return;
+        }
+        var newLevel = computeEscalationLevel(issue);
+        var oldLevel = issue.escalationLevel || 0;
+        if (newLevel !== oldLevel) {
+          issue.escalationLevel = newLevel;
+          changed = true;
+          if (newLevel > oldLevel && newLevel > 0) {
+            addNotification(
+              ADMIN_NOTIF_KEY,
+              'Issue ' + id + ' is overdue — escalated to ' + ESCALATION_LEVEL_LABELS[newLevel] + '.',
+              'escalated',
+              id
+            );
+          }
+        }
+      });
+      if (changed) {
+        saveStoredIssues(issues);
+      }
+    }
+
+    // Demo issues remain available so the existing "Demo IDs to try" hint
+    // under Track Your Issue keeps working exactly as before.
+    var demoIssues = {
+      'SCI-482913': { step: 3, category: 'Roads & potholes', location: 'MG Road, near City Hall' },
+      'SCI-201045': { step: 2, category: 'Street lighting', location: 'Sector 12, Park Avenue' },
+      'SCI-119988': { step: 1, category: 'Utilities (power, water, gas)', location: 'Riverside Colony, Block C' },
+      'SCI-305567': { step: 0, category: 'Traffic signals', location: 'Main St & 5th Ave junction' }
+    };
+
+    var submittedIssues = loadStoredIssues();
+
+    function generateUniqueIssueId() {
+      var issueId;
+      // Guard against the (very unlikely) case of generating an ID that
+      // already exists, so every stored issue keeps a unique ID.
+      do {
+        var randomPart = Math.floor(100000 + Math.random() * 900000);
+        issueId = 'SCI-' + randomPart;
+      } while (submittedIssues[issueId] || demoIssues[issueId]);
+      return issueId;
+    }
+
+    reportForm.addEventListener('submit', function (e) {
+      // Stop the default form submission, which was reloading the page
+      // and causing it to jump down to the next section.
+      e.preventDefault();
+
+      var categorySelect = document.getElementById('issue-category');
+      var categoryText = categorySelect.options[categorySelect.selectedIndex]
+        ? categorySelect.options[categorySelect.selectedIndex].text
+        : categorySelect.value;
+      var descriptionValue = document.getElementById('issue-description').value.trim();
+      var locationValue = document.getElementById('issue-location').value.trim();
+      var photoInputEl = document.getElementById('issue-photo');
+      var photoFile = photoInputEl && photoInputEl.files && photoInputEl.files[0]
+        ? photoInputEl.files[0]
+        : null;
+
+      // Generate a unique Issue ID and immediately save the issue under that
+      // exact ID, so Track Your Issue can find it right away.
+      function finishSubmit(photoDataUrl) {
+        var issueId = generateUniqueIssueId();
+        var submittedAt = new Date().toISOString();
+        var priority = computeIssuePriority(categoryText, descriptionValue);
+        var department = computeDepartment(categoryText);
+        var dueDate = computeDueDate(priority, submittedAt);
+        var latVal = document.getElementById('issue-lat').value;
+        var lngVal = document.getElementById('issue-lng').value;
+
+        submittedIssues[issueId] = {
+          step: 0,
+          category: categoryText,
+          description: descriptionValue || '—',
+          location: locationValue || '—',
+          lat: latVal ? parseFloat(latVal) : null,
+          lng: lngVal ? parseFloat(lngVal) : null,
+          photo: photoDataUrl || null,
+          reportedBy: currentCitizenName || 'Guest citizen',
+          submittedAt: submittedAt,
+          priority: priority,
+          priorityOverridden: false,
+          department: department,
+          departmentOverridden: false,
+          dueDate: dueDate,
+          escalationLevel: 0,
+          feedback: null
+        };
+        saveStoredIssues(submittedIssues);
+
+        issueIdDisplay.textContent = 'Issue ID: ' + issueId;
+        var chipsEl = document.getElementById('report-success-chips');
+        if (chipsEl) {
+          chipsEl.innerHTML = priorityBadgeHtml(priority) + departmentChipHtml(department);
+        }
+
+        // Notify the citizen that their complaint was received — the
+        // "Complaint submitted" event.
+        addNotification(
+          currentCitizenName || 'Guest citizen',
+          'Your complaint has been submitted successfully.',
+          'submitted',
+          issueId
+        );
+
+        // Priority-assigned and department-assigned notifications, per the
+        // AI Priority Detection and Automatic Department Routing features.
+        addNotification(
+          currentCitizenName || 'Guest citizen',
+          'Your complaint ' + issueId + ' was assigned ' + priority + ' priority.',
+          'priority_assigned',
+          issueId
+        );
+        addNotification(
+          currentCitizenName || 'Guest citizen',
+          'Your complaint ' + issueId + ' was routed to the ' + department + '.',
+          'department_assigned',
+          issueId
+        );
+
+        // Notify the Admin that a new complaint has come in — the one new
+        // event this feature adds. Uses the exact same addNotification()
+        // function as the citizen notification above, just targeted at the
+        // shared Admin bucket instead of the citizen's own.
+        addNotification(
+          ADMIN_NOTIF_KEY,
+          'New complaint ' + issueId + ' (' + priority + ') has been submitted and routed to ' + department + '.',
+          'admin_new_complaint',
+          issueId
+        );
+
+        // Refresh the Civic Infrastructure Status cards, this citizen's
+        // Dashboard, the Admin Dashboard, and the Issue Map so the newly
+        // submitted issue is reflected everywhere immediately.
+        renderCivicStatus();
+        renderCitizenDashboard();
+        renderAdminDashboard();
+        renderIssueMap();
+
+        // Swap the form out for the success message, staying on this section.
+        reportForm.style.display = 'none';
+        reportSuccess.style.display = 'block';
+      }
+
+      // If a photo was chosen, read it into a data URL first so it can be
+      // stored alongside the issue and shown later in the Admin Dashboard's
+      // View Details — then finish saving the issue either way.
+      if (photoFile) {
+        var photoReader = new FileReader();
+        photoReader.onload = function () {
+          finishSubmit(photoReader.result);
+        };
+        photoReader.onerror = function () {
+          finishSubmit(null);
+        };
+        photoReader.readAsDataURL(photoFile);
+      } else {
+        finishSubmit(null);
+      }
+    });
+
+    reportAnotherBtn.addEventListener('click', function () {
+      // Reset the form and let the user submit a new report.
+      reportForm.reset();
+      reportSuccess.style.display = 'none';
+      reportForm.style.display = 'block';
+
+      // Also clear the voice transcript panel and location preview so the
+      // next report starts clean.
+      var transcriptBoxEl = document.getElementById('voice-transcript-box');
+      if (transcriptBoxEl) {
+        transcriptBoxEl.classList.remove('show');
+      }
+      var locationPreviewEl = document.getElementById('location-preview');
+      if (locationPreviewEl) {
+        locationPreviewEl.classList.remove('show');
+        locationPreviewEl.textContent = '';
+      }
+      var locationStatusEl = document.getElementById('location-pin-status');
+      if (locationStatusEl) {
+        locationStatusEl.textContent = '';
+        locationStatusEl.classList.remove('ok');
+      }
+    });
+
+    // ----- Track your issue -----
+    var trackInput = document.getElementById('track-id-input');
+    var trackBtn = document.getElementById('track-issue-btn');
+    var trackNotFound = document.getElementById('track-not-found');
+    var trackResult = document.getElementById('track-result');
+    var trackResultId = document.getElementById('track-result-id');
+    var trackResultCategory = document.getElementById('track-result-category');
+    var trackResultLocation = document.getElementById('track-result-location');
+    var timelineSteps = document.querySelectorAll('#track-timeline .timeline-step');
+
+    function trackIssueById(rawId) {
+      var enteredId = (rawId || '').trim().toUpperCase();
+      if (trackInput) {
+        trackInput.value = enteredId;
+      }
+
+      // Reset previous results before showing a new one.
+      trackNotFound.style.display = 'none';
+      trackResult.style.display = 'none';
+
+      if (!enteredId) {
+        trackNotFound.textContent = 'Please enter an Issue ID first.';
+        trackNotFound.style.display = 'block';
+        return;
+      }
+
+      // Re-read from localStorage in case another tab/session added issues,
+      // then check real submitted issues first, falling back to the demo set.
+      submittedIssues = loadStoredIssues();
+      var issue = submittedIssues[enteredId] || demoIssues[enteredId];
+
+      if (!issue) {
+        trackNotFound.textContent = 'Issue ID not found. Please double-check and try again.';
+        trackNotFound.style.display = 'block';
+        return;
+      }
+
+      // Fill in the issue summary.
+      trackResultId.textContent = enteredId;
+      trackResultCategory.textContent = 'Category: ' + issue.category;
+      trackResultLocation.textContent = 'Location: ' + issue.location;
+
+      // Priority / department / SLA / escalation — only present on issues
+      // submitted through the (upgraded) Report an Issue form; demo IDs
+      // simply won't show these chips.
+      var chipsEl = document.getElementById('track-result-chips');
+      var slaEl = document.getElementById('track-result-sla');
+      var photoEl = document.getElementById('track-result-photo');
+      if (chipsEl) {
+        var chipsHtml = '';
+        if (issue.priority) {
+          chipsHtml += priorityBadgeHtml(issue.priority);
+        }
+        if (issue.department) {
+          chipsHtml += departmentChipHtml(issue.department);
+        }
+        var escLevel = issue.escalationLevel || 0;
+        if (escLevel > 0) {
+          chipsHtml += '<span class="escalation-chip">⚠ Escalated: ' + ESCALATION_LEVEL_LABELS[escLevel] + '</span>';
+        }
+        chipsEl.innerHTML = chipsHtml;
+      }
+      if (slaEl) {
+        var sla = slaInfo(issue);
+        slaEl.textContent = sla.label;
+        slaEl.className = 'sla-line' + (sla.overdue ? ' overdue' : '');
+      }
+      if (photoEl) {
+        photoEl.innerHTML = issue.photo
+          ? '<img class="admin-modal-photo" src="' + issue.photo + '" alt="Photo evidence for ' + enteredId + '">'
+          : '';
+      }
+
+      // Highlight the timeline up to the current step.
+      timelineSteps.forEach(function (stepEl) {
+        var stepIndex = parseInt(stepEl.getAttribute('data-step'), 10);
+        stepEl.classList.remove('completed', 'active');
+        if (stepIndex < issue.step) {
+          stepEl.classList.add('completed');
+        } else if (stepIndex === issue.step) {
+          stepEl.classList.add('active');
+        }
+      });
+
+      trackResult.style.display = 'block';
+    }
+
+    function trackIssue() {
+      trackIssueById(trackInput.value);
+    }
+
+    trackBtn.addEventListener('click', trackIssue);
+    trackInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        trackIssue();
+      }
+    });
+
+    // ----- Civic Infrastructure Status (dynamically connected to Report an -----
+    // ----- Issue / Track Your Issue via the same localStorage issue data) -----
+
+    // The "Report an issue" form's category dropdown uses its own wording
+    // (e.g. "Roads & potholes"), while the Civic Status cards use 5 fixed
+    // civic categories. This maps each report category to the matching
+    // civic card so every submitted issue is counted somewhere sensible.
+    var categoryToCivicCard = {
+      'Roads & potholes': 'Roads',
+      'Street lighting': 'Streetlights',
+      'Environment & sanitation': 'Garbage & Waste',
+      'Utilities (power, water, gas)': 'Water Supply',
+      'Traffic signals': 'Public Infrastructure',
+      'Other': 'Public Infrastructure'
+    };
+
+    // Small starting baseline per card, so the section isn't empty before
+    // any real issues are submitted. Every issue submitted through the
+    // Report an Issue form (plus the existing demo tracking IDs) is added
+    // on top of this baseline, which is what makes the cards dynamic.
+    var civicBaseline = [
+      { name: 'Roads', icon: '🛣️', total: 40, resolved: 22, inProgress: 10 },
+      { name: 'Streetlights', icon: '💡', total: 28, resolved: 23, inProgress: 3 },
+      { name: 'Garbage & Waste', icon: '🗑️', total: 46, resolved: 28, inProgress: 12 },
+      { name: 'Water Supply', icon: '🚰', total: 18, resolved: 10, inProgress: 5 },
+      { name: 'Public Infrastructure', icon: '🏛️', total: 14, resolved: 11, inProgress: 2 }
+    ];
+
+    var statusLabels = {
+      good: 'Good',
+      attention: 'Needs Attention',
+      critical: 'Critical'
+    };
+
+    // Turns an issue's saved timeline "step" (0-3, same as the Track Your
+    // Issue timeline: Submitted -> Under review -> In progress -> Resolved)
+    // into one of the three buckets a civic card displays.
+    function bucketForStep(step) {
+      if (step >= 3) {
+        return 'resolved';
+      }
+      if (step === 2) {
+        return 'inProgress';
+      }
+      // Steps 0 (Submitted) and 1 (Under review) both count as Pending.
+      return 'pending';
+    }
+
+    // Simple, transparent rule for the status badge: lots of pending work
+    // relative to total issues is worse than a little.
+    function statusForCounts(total, pending) {
+      if (total === 0) {
+        return 'good';
+      }
+      var pendingRatio = pending / total;
+      if (pendingRatio > 0.5) {
+        return 'critical';
+      }
+      if (pendingRatio > 0.25) {
+        return 'attention';
+      }
+      return 'good';
+    }
+
+    function renderCivicStatus() {
+      var summaryGrid = document.getElementById('civic-summary-grid');
+      var cardsGrid = document.getElementById('civic-grid');
+
+      if (!summaryGrid || !cardsGrid) {
+        return;
+      }
+
+      // Start from the baseline, keyed by civic card name.
+      var counts = {};
+      civicBaseline.forEach(function (cat) {
+        counts[cat.name] = {
+          icon: cat.icon,
+          total: cat.total,
+          resolved: cat.resolved,
+          inProgress: cat.inProgress,
+          pending: cat.total - cat.resolved - cat.inProgress
+        };
+      });
+
+      // Fold in every issue actually submitted through the Report an Issue
+      // form (re-read from localStorage so this stays in sync even if
+      // issues were submitted in another tab), plus the existing demo
+      // tracking IDs, so Track Your Issue and Civic Status always agree.
+      var liveIssues = loadStoredIssues();
+      var allIssues = [];
+      Object.keys(liveIssues).forEach(function (id) {
+        allIssues.push(liveIssues[id]);
+      });
+      Object.keys(demoIssues).forEach(function (id) {
+        allIssues.push(demoIssues[id]);
+      });
+
+      allIssues.forEach(function (issue) {
+        var cardName = categoryToCivicCard[issue.category] || 'Public Infrastructure';
+        if (!counts[cardName]) {
+          return;
+        }
+        var bucket = bucketForStep(issue.step || 0);
+        counts[cardName].total += 1;
+        counts[cardName][bucket] += 1;
+      });
+
+      // Build the top summary stats from the same counts so the numbers
+      // always stay consistent with the individual cards below.
+      var totals = { total: 0, resolved: 0, inProgress: 0, pending: 0 };
+      Object.keys(counts).forEach(function (name) {
+        totals.total += counts[name].total;
+        totals.resolved += counts[name].resolved;
+        totals.inProgress += counts[name].inProgress;
+        totals.pending += counts[name].pending;
+      });
+
+      var summaryItems = [
+        { label: 'Total Issues Reported', value: totals.total },
+        { label: 'Issues Resolved', value: totals.resolved },
+        { label: 'Issues In Progress', value: totals.inProgress },
+        { label: 'Issues Pending', value: totals.pending }
+      ];
+
+      summaryGrid.innerHTML = '';
+      summaryItems.forEach(function (item) {
+        var card = document.createElement('div');
+        card.className = 'civic-summary-card';
+        card.innerHTML = '<h3>' + item.value + '</h3><p>' + item.label + '</p>';
+        summaryGrid.appendChild(card);
+      });
+
+      cardsGrid.innerHTML = '';
+      civicBaseline.forEach(function (cat) {
+        var c = counts[cat.name];
+        var statusKey = statusForCounts(c.total, c.pending);
+        var statusClass = 'status-' + statusKey;
+        var statusLabel = statusLabels[statusKey];
+
+        var card = document.createElement('div');
+        card.className = 'civic-card';
+        card.innerHTML =
+          '<div class="civic-card-header">' +
+            '<div class="civic-card-title">' +
+              '<div class="civic-card-icon">' + c.icon + '</div>' +
+              '<h3>' + cat.name + '</h3>' +
+            '</div>' +
+            '<span class="status-badge ' + statusClass + '">' + statusLabel + '</span>' +
+          '</div>' +
+          '<p class="civic-card-total">Total reported: <strong>' + c.total + '</strong></p>' +
+          '<div class="civic-card-stats">' +
+            '<div class="civic-stat-item"><div class="civic-stat-num">' + c.resolved + '</div><div class="civic-stat-label">Resolved</div></div>' +
+            '<div class="civic-stat-item"><div class="civic-stat-num">' + c.inProgress + '</div><div class="civic-stat-label">In Progress</div></div>' +
+            '<div class="civic-stat-item"><div class="civic-stat-num">' + c.pending + '</div><div class="civic-stat-label">Pending</div></div>' +
+          '</div>';
+        cardsGrid.appendChild(card);
+      });
+    }
+
+    // Initial render on page load, and again whenever another tab/window
+    // updates the same localStorage issue data.
+    renderCivicStatus();
+    window.addEventListener('storage', function (e) {
+      if (e.key === ISSUES_STORAGE_KEY) {
+        renderCivicStatus();
+        renderCitizenDashboard();
+        renderAdminDashboard();
+      }
+    });
+
+    // ----- Citizen Dashboard (this citizen's own issues, from the same -----
+    // ----- localStorage issue data used by Report an Issue / Track) -----
+    var STATUS_LABELS = ['Submitted', 'Under review', 'In progress', 'Resolved'];
+
+    function statusBadgeClassForStep(step) {
+      if (step >= 3) {
+        return 'status-good';
+      }
+      if (step === 2) {
+        return 'status-attention';
+      }
+      return 'status-neutral';
+    }
+
+    function formatIssueDate(isoString) {
+      if (!isoString) {
+        return 'Unknown date';
+      }
+      var d = new Date(isoString);
+      if (isNaN(d.getTime())) {
+        return 'Unknown date';
+      }
+      return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function renderCitizenDashboard() {
+      var welcomeEl = document.getElementById('dashboard-welcome');
+      var summaryGrid = document.getElementById('dashboard-summary-grid');
+      var issuesList = document.getElementById('dashboard-issues-list');
+
+      if (!welcomeEl || !summaryGrid || !issuesList) {
+        return;
+      }
+
+      welcomeEl.textContent = 'Welcome, ' + (currentCitizenName || 'Citizen') + '!';
+
+      // Only this citizen's own submitted issues — never the demo IDs,
+      // since those were not actually reported by anyone.
+      var allIssues = loadStoredIssues();
+      var myIssueIds = Object.keys(allIssues).filter(function (id) {
+        return allIssues[id].reportedBy === currentCitizenName;
+      });
+
+      var total = myIssueIds.length;
+      var resolved = 0;
+      var inProgress = 0;
+      var pending = 0;
+
+      myIssueIds.forEach(function (id) {
+        var step = allIssues[id].step || 0;
+        if (step >= 3) {
+          resolved += 1;
+        } else if (step === 2) {
+          inProgress += 1;
+        } else {
+          pending += 1;
+        }
+      });
+
+      var summaryItems = [
+        { label: 'Total Issues', value: total },
+        { label: 'Pending Issues', value: pending },
+        { label: 'In Progress', value: inProgress },
+        { label: 'Resolved Issues', value: resolved }
+      ];
+
+      summaryGrid.innerHTML = '';
+      summaryItems.forEach(function (item) {
+        var card = document.createElement('div');
+        card.className = 'civic-summary-card';
+        card.innerHTML = '<h3>' + item.value + '</h3><p>' + item.label + '</p>';
+        summaryGrid.appendChild(card);
+      });
+
+      if (total === 0) {
+        issuesList.innerHTML = '<div class="dashboard-empty">No issues reported yet.</div>';
+        return;
+      }
+
+      // Most recently submitted first.
+      myIssueIds.sort(function (a, b) {
+        return new Date(allIssues[b].submittedAt) - new Date(allIssues[a].submittedAt);
+      });
+
+      issuesList.innerHTML = '';
+      myIssueIds.forEach(function (id) {
+        var issue = allIssues[id];
+        var step = issue.step || 0;
+        var statusLabel = STATUS_LABELS[step] || STATUS_LABELS[0];
+        var badgeClass = statusBadgeClassForStep(step);
+        var sla = slaInfo(issue);
+        var escLevel = issue.escalationLevel || 0;
+
+        var chipsHtml = '';
+        if (issue.priority) {
+          chipsHtml += priorityBadgeHtml(issue.priority);
+        }
+        if (issue.department) {
+          chipsHtml += departmentChipHtml(issue.department);
+        }
+        if (escLevel > 0) {
+          chipsHtml += '<span class="escalation-chip">⚠ ' + ESCALATION_LEVEL_LABELS[escLevel] + '</span>';
+        }
+
+        var card = document.createElement('div');
+        card.className = 'dashboard-issue-card';
+        card.innerHTML =
+          '<div class="dashboard-issue-top">' +
+            '<span class="dashboard-issue-id">' + id + '</span>' +
+            '<span class="status-badge ' + badgeClass + '">' + statusLabel + '</span>' +
+          '</div>' +
+          '<div class="meta-chip-row">' + chipsHtml + '</div>' +
+          '<div class="dashboard-issue-meta">' +
+            '<p><strong>Category:</strong> ' + issue.category + '</p>' +
+            '<p><strong>Description:</strong> ' + issue.description + '</p>' +
+            '<p><strong>Location:</strong> ' + issue.location + '</p>' +
+            '<p><strong>Date reported:</strong> ' + formatIssueDate(issue.submittedAt) + '</p>' +
+            (sla.label ? '<p class="sla-line' + (sla.overdue ? ' overdue' : '') + '">' + sla.label + '</p>' : '') +
+          '</div>' +
+          buildFeedbackSectionHtml(id, issue) +
+          '<div class="dashboard-issue-actions">' +
+            '<button type="button" class="btn-secondary dashboard-track-btn" data-issue-id="' + id + '">Track issue</button>' +
+          '</div>';
+        issuesList.appendChild(card);
+      });
+
+      // Wire up each "Track issue" button to jump to Track Your Issue and
+      // look up that exact issue right away.
+      var trackButtons = issuesList.querySelectorAll('.dashboard-track-btn');
+      trackButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-issue-id');
+          trackIssueById(id);
+          var trackSection = document.getElementById('track-issue');
+          if (trackSection) {
+            trackSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      wireFeedbackControls(issuesList);
+    }
+
+    // ===== Citizen Feedback After Resolution =====
+    // Builds the feedback block for a single dashboard card: a star rating
+    // + optional comment for resolved issues that haven't been rated yet,
+    // or a short confirmation once feedback has been submitted. Feedback is
+    // stored on the same issue record used everywhere else, keyed by Issue ID.
+    function buildFeedbackSectionHtml(id, issue) {
+      if ((issue.step || 0) < 3) {
+        return '';
+      }
+      if (issue.feedback) {
+        return '<div class="feedback-box"><p class="feedback-submitted-note">✓ Thanks for your feedback — you rated this ' +
+          issue.feedback.rating + '/5.' + (issue.feedback.comment ? ' "' + issue.feedback.comment + '"' : '') + '</p></div>';
+      }
+      var stars = '';
+      for (var i = 1; i <= 5; i++) {
+        stars += '<button type="button" class="star-btn" data-star="' + i + '" data-issue-id="' + id + '">★</button>';
+      }
+      return '<div class="feedback-box" data-feedback-issue-id="' + id + '">' +
+        '<h5>How satisfied are you with the resolution?</h5>' +
+        '<div class="star-row" data-star-row="' + id + '">' + stars + '</div>' +
+        '<textarea placeholder="Optional comment" data-comment-for="' + id + '"></textarea>' +
+        '<button type="button" class="btn-secondary feedback-submit-btn" data-issue-id="' + id + '">Submit feedback</button>' +
+        '</div>';
+    }
+
+    // Wires up star selection and feedback submission for every feedback
+    // block currently on the page (Citizen Dashboard cards only).
+    function wireFeedbackControls(scopeEl) {
+      var starButtons = scopeEl.querySelectorAll('.star-btn');
+      starButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var issueId = btn.getAttribute('data-issue-id');
+          var value = parseInt(btn.getAttribute('data-star'), 10);
+          var row = scopeEl.querySelector('[data-star-row="' + issueId + '"]');
+          if (!row) {
+            return;
+          }
+          row.setAttribute('data-selected', value);
+          var allStars = row.querySelectorAll('.star-btn');
+          allStars.forEach(function (s) {
+            var starVal = parseInt(s.getAttribute('data-star'), 10);
+            s.classList.toggle('active', starVal <= value);
+          });
+        });
+      });
+
+      var submitButtons = scopeEl.querySelectorAll('.feedback-submit-btn');
+      submitButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var issueId = btn.getAttribute('data-issue-id');
+          var row = scopeEl.querySelector('[data-star-row="' + issueId + '"]');
+          var rating = row ? parseInt(row.getAttribute('data-selected') || '0', 10) : 0;
+          var commentEl = scopeEl.querySelector('[data-comment-for="' + issueId + '"]');
+          var comment = commentEl ? commentEl.value.trim() : '';
+
+          if (!rating) {
+            return;
+          }
+
+          var allIssues = loadStoredIssues();
+          var current = allIssues[issueId];
+          if (!current) {
+            return;
+          }
+          current.feedback = {
+            rating: rating,
+            comment: comment,
+            satisfied: rating >= 4,
+            submittedAt: new Date().toISOString()
+          };
+          allIssues[issueId] = current;
+          saveStoredIssues(allIssues);
+
+          renderCitizenDashboard();
+          renderAdminDashboard();
+        });
+      });
+    }
+
+    // ----- Admin Dashboard (ALL citizens' issues, from the SAME -----
+    // ----- localStorage issue data used everywhere else on the page) -----
+    var adminModalOverlay = document.getElementById('admin-modal-overlay');
+    var adminModalClose = document.getElementById('admin-modal-close');
+    var adminModalId = document.getElementById('admin-modal-id');
+    var adminModalBody = document.getElementById('admin-modal-body');
+
+    function openAdminModal(issueId, issue) {
+      if (!adminModalOverlay || !adminModalId || !adminModalBody) {
+        return;
+      }
+      var step = issue.step || 0;
+      var statusLabel = STATUS_LABELS[step] || STATUS_LABELS[0];
+      var photoHtml = issue.photo
+        ? '<img class="admin-modal-photo" src="' + issue.photo + '" alt="Uploaded photo for ' + issueId + '">'
+        : '';
+
+      var statusOptionsHtml = STATUS_LABELS.map(function (label, idx) {
+        var selected = idx === step ? ' selected' : '';
+        return '<option value="' + idx + '"' + selected + '>' + label + '</option>';
+      }).join('');
+
+      var priority = issue.priority || computeIssuePriority(issue.category, issue.description);
+      var priorityOptionsHtml = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].map(function (p) {
+        var selected = p === priority ? ' selected' : '';
+        return '<option value="' + p + '"' + selected + '>' + p + '</option>';
+      }).join('');
+
+      var department = issue.department || computeDepartment(issue.category);
+      var departmentOptionsHtml = Object.keys(CATEGORY_TO_DEPARTMENT)
+        .map(function (k) { return CATEGORY_TO_DEPARTMENT[k]; })
+        .filter(function (v, idx, arr) { return arr.indexOf(v) === idx; })
+        .map(function (d) {
+          var selected = d === department ? ' selected' : '';
+          return '<option value="' + d + '"' + selected + '>' + d + '</option>';
+        }).join('');
+
+      var sla = slaInfo(issue);
+      var escLevel = issue.escalationLevel || 0;
+      var locationLinkHtml = (issue.lat && issue.lng)
+        ? '<p><strong>Coordinates:</strong> ' + issue.lat.toFixed(5) + ', ' + issue.lng.toFixed(5) + '</p>'
+        : '';
+      var feedbackHtml = issue.feedback
+        ? '<p><strong>Citizen feedback:</strong> ' + issue.feedback.rating + '/5' + (issue.feedback.comment ? ' — "' + issue.feedback.comment + '"' : '') + '</p>'
+        : '';
+
+      adminModalId.textContent = issueId;
+      adminModalBody.innerHTML =
+        photoHtml +
+        '<p><strong>Citizen name:</strong> ' + (issue.reportedBy || 'Guest citizen') + '</p>' +
+        '<p><strong>Category:</strong> ' + issue.category + '</p>' +
+        '<p><strong>Description:</strong> ' + issue.description + '</p>' +
+        '<p><strong>Location:</strong> ' + issue.location + '</p>' +
+        locationLinkHtml +
+        '<p><strong>Date reported:</strong> ' + formatIssueDate(issue.submittedAt) + '</p>' +
+        '<p id="admin-modal-current-status"><strong>Current status:</strong> ' + statusLabel + '</p>' +
+        (sla.label ? '<p class="sla-line' + (sla.overdue ? ' overdue' : '') + '"><strong>SLA:</strong> ' + sla.label + '</p>' : '') +
+        (escLevel > 0 ? '<p><strong>Escalation:</strong> <span class="escalation-chip">⚠ ' + ESCALATION_LEVEL_LABELS[escLevel] + '</span></p>' : '') +
+        feedbackHtml +
+        '<div class="admin-status-update">' +
+          '<label for="admin-status-select">Update status</label>' +
+          '<div class="admin-status-row">' +
+            '<select id="admin-status-select">' + statusOptionsHtml + '</select>' +
+            '<button type="button" id="admin-status-update-btn" data-issue-id="' + issueId + '">Update</button>' +
+          '</div>' +
+          '<p class="admin-status-note" id="admin-status-note">Status updated — citizen notified.</p>' +
+        '</div>' +
+        '<div class="admin-status-update">' +
+          '<label for="admin-priority-select">Override priority</label>' +
+          '<div class="admin-status-row">' +
+            '<select id="admin-priority-select">' + priorityOptionsHtml + '</select>' +
+            '<button type="button" id="admin-priority-update-btn" data-issue-id="' + issueId + '">Update</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="admin-status-update">' +
+          '<label for="admin-department-select">Override department</label>' +
+          '<div class="admin-status-row">' +
+            '<select id="admin-department-select">' + departmentOptionsHtml + '</select>' +
+            '<button type="button" id="admin-department-update-btn" data-issue-id="' + issueId + '">Update</button>' +
+          '</div>' +
+        '</div>';
+
+      // Priority override — admin can correct the rule-based/AI-style
+      // suggestion. Persists to the same issue record everywhere else reads.
+      var priorityUpdateBtn = document.getElementById('admin-priority-update-btn');
+      if (priorityUpdateBtn) {
+        priorityUpdateBtn.addEventListener('click', function () {
+          var select = document.getElementById('admin-priority-select');
+          var targetId = priorityUpdateBtn.getAttribute('data-issue-id');
+          var allIssues = loadStoredIssues();
+          var current = allIssues[targetId];
+          if (!current) {
+            return;
+          }
+          current.priority = select.value;
+          current.priorityOverridden = true;
+          allIssues[targetId] = current;
+          saveStoredIssues(allIssues);
+          addNotification(current.reportedBy, 'Your complaint ' + targetId + ' priority was updated to ' + select.value + ' by an administrator.', 'priority_assigned', targetId);
+          renderCivicStatus();
+          renderCitizenDashboard();
+          renderAdminDashboard();
+          openAdminModal(targetId, loadStoredIssues()[targetId]);
+        });
+      }
+
+      // Department override.
+      var departmentUpdateBtn = document.getElementById('admin-department-update-btn');
+      if (departmentUpdateBtn) {
+        departmentUpdateBtn.addEventListener('click', function () {
+          var select = document.getElementById('admin-department-select');
+          var targetId = departmentUpdateBtn.getAttribute('data-issue-id');
+          var allIssues = loadStoredIssues();
+          var current = allIssues[targetId];
+          if (!current) {
+            return;
+          }
+          current.department = select.value;
+          current.departmentOverridden = true;
+          allIssues[targetId] = current;
+          saveStoredIssues(allIssues);
+          addNotification(current.reportedBy, 'Your complaint ' + targetId + ' was reassigned to the ' + select.value + '.', 'department_assigned', targetId);
+          renderCitizenDashboard();
+          renderAdminDashboard();
+          openAdminModal(targetId, loadStoredIssues()[targetId]);
+        });
+      }
+
+      // Wire the Update button freshly each time, since the modal body is
+      // rebuilt via innerHTML on every open.
+      var statusUpdateBtn = document.getElementById('admin-status-update-btn');
+      if (statusUpdateBtn) {
+        statusUpdateBtn.addEventListener('click', function () {
+          var select = document.getElementById('admin-status-select');
+          var note = document.getElementById('admin-status-note');
+          var targetId = statusUpdateBtn.getAttribute('data-issue-id');
+          var newStep = parseInt(select.value, 10);
+
+          var allIssues = loadStoredIssues();
+          var current = allIssues[targetId];
+          if (!current) {
+            return;
+          }
+
+          current.step = newStep;
+          if (newStep >= 3) {
+            // Resolved issues are never overdue/escalated going forward.
+            current.escalationLevel = 0;
+          }
+          allIssues[targetId] = current;
+          saveStoredIssues(allIssues);
+
+          // Complaint status updated / resolved — notify the citizen who
+          // reported it.
+          var message = newStep >= 3
+            ? 'Your complaint has been resolved.'
+            : 'Your complaint status has been updated.';
+          addNotification(current.reportedBy, message, newStep >= 3 ? 'resolved' : 'status', targetId);
+          if (newStep >= 3) {
+            addNotification(current.reportedBy, 'You can now leave feedback on complaint ' + targetId + '.', 'feedback_available', targetId);
+          }
+
+          // Refresh every view that reads from the same issue store.
+          renderCivicStatus();
+          renderCitizenDashboard();
+          renderAdminDashboard();
+          renderIssueMap();
+          adminModalId.textContent = targetId;
+          var newLabel = STATUS_LABELS[newStep] || STATUS_LABELS[0];
+          var statusLine = document.getElementById('admin-modal-current-status');
+          if (statusLine) {
+            statusLine.innerHTML = '<strong>Current status:</strong> ' + newLabel;
+          }
+          if (note) {
+            note.classList.add('show');
+          }
+        });
+      }
+
+      adminModalOverlay.classList.add('open');
+    }
+
+    function closeAdminModal() {
+      if (adminModalOverlay) {
+        adminModalOverlay.classList.remove('open');
+      }
+    }
+
+    if (adminModalClose) {
+      adminModalClose.addEventListener('click', closeAdminModal);
+    }
+    if (adminModalOverlay) {
+      // Clicking the dimmed backdrop (but not the modal box itself) closes it.
+      adminModalOverlay.addEventListener('click', function (e) {
+        if (e.target === adminModalOverlay) {
+          closeAdminModal();
+        }
+      });
+    }
+
+    function renderAdminDashboard() {
+      var summaryGrid = document.getElementById('admin-summary-grid');
+      var issuesList = document.getElementById('admin-issues-list');
+
+      if (!summaryGrid || !issuesList) {
+        return;
+      }
+
+      // Automatic Escalation: re-check every issue's deadline before
+      // rendering, so overdue issues and their escalation level are always
+      // up to date without needing a manual refresh.
+      runEscalationChecks();
+
+      // ALL real issues reported by any citizen through the Report an Issue
+      // form — the same localStorage data used everywhere else, so nothing
+      // is duplicated. The demo tracking IDs are left out here for the same
+      // reason they're left out of the Citizen Dashboard: they were never
+      // actually reported by a citizen and have no citizen name attached.
+      var allIssues = loadStoredIssues();
+      var allIds = Object.keys(allIssues);
+
+      var total = allIds.length;
+      var pending = 0;
+      var underReview = 0;
+      var inProgress = 0;
+      var resolved = 0;
+
+      allIds.forEach(function (id) {
+        var step = allIssues[id].step || 0;
+        if (step === 0) {
+          pending += 1;
+        } else if (step === 1) {
+          underReview += 1;
+        } else if (step === 2) {
+          inProgress += 1;
+        } else {
+          resolved += 1;
+        }
+      });
+
+      var criticalCount = 0, highCount = 0, overdueCount = 0, escalatedCount = 0;
+      var ratingSum = 0, ratingCount = 0;
+      allIds.forEach(function (id) {
+        var iss = allIssues[id];
+        if (iss.priority === 'CRITICAL') criticalCount += 1;
+        if (iss.priority === 'HIGH') highCount += 1;
+        var sla = slaInfo(iss);
+        if (sla.overdue) overdueCount += 1;
+        if ((iss.escalationLevel || 0) > 0) escalatedCount += 1;
+        if (iss.feedback) {
+          ratingSum += iss.feedback.rating;
+          ratingCount += 1;
+        }
+      });
+      var avgRating = ratingCount > 0 ? (ratingSum / ratingCount).toFixed(1) : '—';
+
+      var summaryItems = [
+        { label: 'Total Issues', value: total },
+        { label: 'Pending', value: pending },
+        { label: 'Under Review', value: underReview },
+        { label: 'In Progress', value: inProgress },
+        { label: 'Resolved', value: resolved },
+        { label: 'Critical', value: criticalCount },
+        { label: 'High', value: highCount },
+        { label: 'Overdue', value: overdueCount },
+        { label: 'Escalated', value: escalatedCount },
+        { label: 'Avg. Feedback (' + ratingCount + ')', value: avgRating }
+      ];
+
+      summaryGrid.innerHTML = '';
+      summaryItems.forEach(function (item) {
+        var card = document.createElement('div');
+        card.className = 'civic-summary-card';
+        card.innerHTML = '<h3>' + item.value + '</h3><p>' + item.label + '</p>';
+        summaryGrid.appendChild(card);
+      });
+
+      if (total === 0) {
+        issuesList.innerHTML = '<div class="admin-empty">No issues have been reported yet.</div>';
+        renderAnalytics();
+        renderHotspots();
+        renderIssueMap();
+        return;
+      }
+
+      // Most recently submitted first, same ordering as the Citizen Dashboard.
+      allIds.sort(function (a, b) {
+        return new Date(allIssues[b].submittedAt) - new Date(allIssues[a].submittedAt);
+      });
+
+      issuesList.innerHTML = '';
+      allIds.forEach(function (id) {
+        var issue = allIssues[id];
+        var step = issue.step || 0;
+        var statusLabel = STATUS_LABELS[step] || STATUS_LABELS[0];
+        var badgeClass = statusBadgeClassForStep(step);
+        var sla = slaInfo(issue);
+        var escLevel = issue.escalationLevel || 0;
+
+        var chipsHtml = '';
+        if (issue.priority) {
+          chipsHtml += priorityBadgeHtml(issue.priority);
+        }
+        if (issue.department) {
+          chipsHtml += departmentChipHtml(issue.department);
+        }
+        if (escLevel > 0) {
+          chipsHtml += '<span class="escalation-chip">⚠ ' + ESCALATION_LEVEL_LABELS[escLevel] + '</span>';
+        }
+
+        var card = document.createElement('div');
+        card.className = 'admin-issue-card';
+        card.innerHTML =
+          '<div class="admin-issue-top">' +
+            '<div class="admin-issue-id-group">' +
+              '<span class="dashboard-issue-id">' + id + '</span>' +
+              '<span class="admin-issue-citizen">' + (issue.reportedBy || 'Guest citizen') + '</span>' +
+            '</div>' +
+            '<span class="status-badge ' + badgeClass + '">' + statusLabel + '</span>' +
+          '</div>' +
+          '<div class="meta-chip-row">' + chipsHtml + '</div>' +
+          '<div class="admin-issue-meta">' +
+            '<p><strong>Category:</strong> ' + issue.category + '</p>' +
+            '<p><strong>Description:</strong> ' + issue.description + '</p>' +
+            '<p><strong>Location:</strong> ' + issue.location + '</p>' +
+            '<p><strong>Date reported:</strong> ' + formatIssueDate(issue.submittedAt) + '</p>' +
+            (sla.label ? '<p class="sla-line' + (sla.overdue ? ' overdue' : '') + '">' + sla.label + '</p>' : '') +
+          '</div>' +
+          '<div class="admin-issue-actions">' +
+            '<button type="button" class="btn-primary admin-view-btn" data-issue-id="' + id + '">View details</button>' +
+          '</div>';
+        issuesList.appendChild(card);
+      });
+
+      // "View details" opens the modal with this exact issue's full info.
+      var viewButtons = issuesList.querySelectorAll('.admin-view-btn');
+      viewButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-issue-id');
+          var current = loadStoredIssues();
+          if (current[id]) {
+            openAdminModal(id, current[id]);
+          }
+        });
+      });
+
+      // Analytics, the Issue Map, and the Area-wise Hotspots all read from
+      // the same issue store and re-render any time the Admin Dashboard
+      // does, so none of them ever drift out of sync.
+      renderAnalytics();
+      renderIssueMap();
+      renderHotspots();
+    }
+
+    // ===== Analytics (inside the Admin Dashboard) =====
+    // Reuses the same localStorage issue data as everything else on this
+    // page (loadStoredIssues, categoryToCivicCard, STATUS_LABELS) — no new
+    // storage, no new backend calls.
+    var ANALYTICS_CATEGORIES = [
+      { key: 'Water Supply', label: 'Water' },
+      { key: 'Roads', label: 'Roads' },
+      { key: 'Garbage & Waste', label: 'Garbage/Waste' },
+      { key: 'Streetlights', label: 'Street Lights' },
+      { key: 'Public Infrastructure', label: 'Public Infrastructure' },
+      { key: 'Other', label: 'Other' }
+    ];
+
+    // Small, clearly-labelled demo dataset — only used when there isn't
+    // yet enough real complaint data (e.g. a fresh prototype with zero
+    // submitted issues) so the chart isn't just empty during a demo.
+    var ANALYTICS_DEMO_CATEGORY_COUNTS = {
+      'Water Supply': 6,
+      'Roads': 9,
+      'Garbage & Waste': 5,
+      'Streetlights': 4,
+      'Public Infrastructure': 3,
+      'Other': 2
+    };
+
+    // Renders a simple horizontal bar chart (label, count, proportional
+    // bar) into the given container — used for both the category
+    // breakdown and the pending-vs-resolved comparison.
+    function renderBarChart(containerId, rows, maxOverride) {
+      var container = document.getElementById(containerId);
+      if (!container) {
+        return;
+      }
+      var values = rows.map(function (r) { return r.value; }).concat([1]);
+      var max = maxOverride || Math.max.apply(null, values);
+
+      container.innerHTML = '';
+      rows.forEach(function (row) {
+        var pct = max > 0 ? Math.round((row.value / max) * 100) : 0;
+        var el = document.createElement('div');
+        el.className = 'bar-chart-row';
+        el.innerHTML =
+          '<div class="bar-chart-row-top"><span>' + row.label + '</span><strong>' + row.value + '</strong></div>' +
+          '<div class="bar-track"><div class="bar-fill' + (row.cls ? ' ' + row.cls : '') + '" style="width: ' + pct + '%;"></div></div>';
+        container.appendChild(el);
+      });
+    }
+
+    function renderAnalytics() {
+      var summaryGrid = document.getElementById('analytics-summary-grid');
+      // Analytics markup only exists on the Admin Dashboard — skip quietly
+      // if it isn't on the page (defensive, shouldn't happen here).
+      if (!summaryGrid) {
+        return;
+      }
+
+      // ----- Complaint Summary Cards: same real, citizen-submitted issue -----
+      // ----- data the Admin Dashboard list and cards above already use. -----
+      var allIssues = loadStoredIssues();
+      var allIds = Object.keys(allIssues);
+      var total = allIds.length;
+      var pending = 0;
+      var underReview = 0;
+      var inProgress = 0;
+      var resolved = 0;
+
+      allIds.forEach(function (id) {
+        var step = allIssues[id].step || 0;
+        if (step === 0) {
+          pending += 1;
+        } else if (step === 1) {
+          underReview += 1;
+        } else if (step === 2) {
+          inProgress += 1;
+        } else {
+          resolved += 1;
+        }
+      });
+
+      var summaryItems = [
+        { label: 'Total Complaints', value: total },
+        { label: 'Pending', value: pending },
+        { label: 'Under Review', value: underReview },
+        { label: 'In Progress', value: inProgress },
+        { label: 'Resolved', value: resolved }
+      ];
+      summaryGrid.innerHTML = '';
+      summaryItems.forEach(function (item) {
+        var card = document.createElement('div');
+        card.className = 'civic-summary-card';
+        card.innerHTML = '<h3>' + item.value + '</h3><p>' + item.label + '</p>';
+        summaryGrid.appendChild(card);
+      });
+
+      // ----- Category-wise Issues -----
+      var categoryCounts = {};
+      ANALYTICS_CATEGORIES.forEach(function (c) {
+        categoryCounts[c.key] = 0;
+      });
+      allIds.forEach(function (id) {
+        var issue = allIssues[id];
+        var cardName = categoryToCivicCard[issue.category] || 'Other';
+        if (categoryCounts[cardName] === undefined) {
+          cardName = 'Other';
+        }
+        categoryCounts[cardName] += 1;
+      });
+
+      // No real complaints yet — fall back to the small labelled demo set
+      // above so the chart still has something meaningful to show.
+      var usingDemoCategoryData = total === 0;
+      var categorySource = usingDemoCategoryData ? ANALYTICS_DEMO_CATEGORY_COUNTS : categoryCounts;
+      var categoryRows = ANALYTICS_CATEGORIES.map(function (c) {
+        return { label: c.label, value: categorySource[c.key] || 0 };
+      });
+      renderBarChart('analytics-category-chart', categoryRows);
+
+      var categoryNote = document.getElementById('analytics-category-note');
+      if (categoryNote) {
+        categoryNote.style.display = usingDemoCategoryData ? 'block' : 'none';
+      }
+
+      // ----- Pending vs Resolved -----
+      var activeCount = pending + underReview + inProgress;
+      var pendingVsResolvedRows = [
+        { label: 'Active (Pending + Under Review + In Progress)', value: activeCount, cls: 'pending' },
+        { label: 'Resolved', value: resolved, cls: 'resolved' }
+      ];
+      renderBarChart('analytics-pending-resolved-chart', pendingVsResolvedRows, Math.max(activeCount, resolved, 1));
+
+      // ----- Resolution Statistics (donut) -----
+      var donutTotal = total > 0 ? total : 1;
+      var resolvedForDonut = total > 0 ? resolved : 0;
+      var resolvedPct = Math.round((resolvedForDonut / donutTotal) * 100);
+
+      var donutEl = document.getElementById('analytics-donut');
+      var donutCenter = document.getElementById('analytics-donut-center');
+      if (donutEl) {
+        donutEl.style.setProperty('--resolved-deg', (resolvedPct * 3.6) + 'deg');
+      }
+      if (donutCenter) {
+        donutCenter.innerHTML = total > 0
+          ? '<strong>' + resolvedPct + '%</strong><span>Resolved</span>'
+          : '<strong>—</strong><span>No data yet</span>';
+      }
+
+      var legend = document.getElementById('analytics-donut-legend');
+      if (legend) {
+        legend.innerHTML =
+          '<div class="legend-item"><span class="legend-dot" style="background-color:#1a7f4e;"></span>Resolved: ' + resolvedForDonut + '</div>' +
+          '<div class="legend-item"><span class="legend-dot" style="background-color:#dfe6ec;"></span>Still active: ' + (total > 0 ? (total - resolvedForDonut) : 0) + '</div>';
+      }
+    }
+
+    // ===== Interactive Civic Issue Map =====
+    // No external map API/key is used, so this renders a functional
+    // fallback: a to-scale grid with issues plotted by real GPS coordinates
+    // when available (from Location Pinning), and — for issues with no
+    // coordinates — a stable pseudo-position derived from their Issue ID,
+    // so every issue still appears somewhere sensible on the map.
+    function hashStringToUnit(str) {
+      var hash = 0;
+      for (var i = 0; i < str.length; i++) {
+        hash = (hash << 5) - hash + str.charCodeAt(i);
+        hash |= 0;
+      }
+      return Math.abs(hash % 1000) / 1000;
+    }
+
+    function pinClassForIssue(issue) {
+      if ((issue.step || 0) >= 3) {
+        return 'pin-resolved';
+      }
+      var p = (issue.priority || 'MEDIUM').toLowerCase();
+      return 'pin-' + p;
+    }
+
+    function renderIssueMap() {
+      var frame = document.getElementById('map-frame');
+      var emptyNote = document.getElementById('map-empty-note');
+      if (!frame) {
+        return;
+      }
+
+      var liveIssues = loadStoredIssues();
+      var ids = Object.keys(liveIssues);
+
+      frame.innerHTML = '';
+      if (emptyNote) {
+        emptyNote.style.display = ids.length === 0 ? 'block' : 'none';
+      }
+
+      // Real coordinates (from Location Pinning) are scaled into a bounding
+      // box around their min/max so nearby reports spread out sensibly;
+      // issues without coordinates fall back to an ID-derived position.
+      var withCoords = ids.filter(function (id) { return liveIssues[id].lat && liveIssues[id].lng; });
+      var latVals = withCoords.map(function (id) { return liveIssues[id].lat; });
+      var lngVals = withCoords.map(function (id) { return liveIssues[id].lng; });
+      var latMin = latVals.length ? Math.min.apply(null, latVals) - 0.002 : 0;
+      var latMax = latVals.length ? Math.max.apply(null, latVals) + 0.002 : 1;
+      var lngMin = lngVals.length ? Math.min.apply(null, lngVals) - 0.002 : 0;
+      var lngMax = lngVals.length ? Math.max.apply(null, lngVals) + 0.002 : 1;
+
+      ids.forEach(function (id) {
+        var issue = liveIssues[id];
+        var xPct, yPct;
+        if (issue.lat && issue.lng && latMax > latMin && lngMax > lngMin) {
+          xPct = ((issue.lng - lngMin) / (lngMax - lngMin)) * 86 + 7;
+          yPct = (1 - (issue.lat - latMin) / (latMax - latMin)) * 82 + 8;
+        } else {
+          xPct = hashStringToUnit(id + 'x') * 86 + 7;
+          yPct = hashStringToUnit(id + 'y') * 82 + 8;
+        }
+
+        var pin = document.createElement('div');
+        pin.className = 'map-pin ' + pinClassForIssue(issue);
+        pin.style.left = xPct + '%';
+        pin.style.top = yPct + '%';
+        pin.innerHTML = '<span class="map-tooltip">' + id + ' · ' + (issue.priority || 'MEDIUM') +
+          ' · ' + STATUS_LABELS[issue.step || 0] + '<br>' + issue.category + '<br>' + issue.location + '</span>';
+        frame.appendChild(pin);
+      });
+    }
+
+    // ===== Area-wise Civic Hotspots =====
+    // Groups all real, citizen-submitted issues by their location text (the
+    // free-text "Location" field, or the resolved street address from
+    // Location Pinning) — using the same issue data as everything else.
+    function areaKeyForIssue(issue) {
+      var loc = (issue.location || 'Unspecified area').trim();
+      // Use the first comma-separated segment as the "area" so e.g.
+      // "MG Road, near City Hall" and "MG Road, Block 4" group together.
+      return loc.split(',')[0].trim() || 'Unspecified area';
+    }
+
+    function renderHotspots() {
+      var grid = document.getElementById('hotspot-grid');
+      if (!grid) {
+        return;
+      }
+      var liveIssues = loadStoredIssues();
+      var ids = Object.keys(liveIssues);
+
+      if (ids.length === 0) {
+        grid.innerHTML = '<div class="admin-empty">No issues reported yet — hotspots will appear once citizens start reporting.</div>';
+        return;
+      }
+
+      var areas = {};
+      ids.forEach(function (id) {
+        var issue = liveIssues[id];
+        var key = areaKeyForIssue(issue);
+        if (!areas[key]) {
+          areas[key] = { total: 0, pending: 0, resolved: 0, criticalHigh: 0, categories: {} };
+        }
+        var a = areas[key];
+        a.total += 1;
+        var step = issue.step || 0;
+        if (step >= 3) {
+          a.resolved += 1;
+        } else {
+          a.pending += 1;
+        }
+        if (issue.priority === 'CRITICAL' || issue.priority === 'HIGH') {
+          a.criticalHigh += 1;
+        }
+        a.categories[issue.category] = (a.categories[issue.category] || 0) + 1;
+      });
+
+      var areaNames = Object.keys(areas).sort(function (a, b) {
+        return areas[b].total - areas[a].total;
+      }).slice(0, 8);
+
+      grid.innerHTML = '';
+      areaNames.forEach(function (name) {
+        var a = areas[name];
+        var topCategory = Object.keys(a.categories).sort(function (x, y) {
+          return a.categories[y] - a.categories[x];
+        })[0];
+
+        var card = document.createElement('div');
+        card.className = 'hotspot-card';
+        card.innerHTML =
+          '<div class="hotspot-card-top"><h4>📍 ' + name + '</h4><span class="hotspot-count">' + a.total + ' issue' + (a.total === 1 ? '' : 's') + '</span></div>' +
+          '<div class="hotspot-meta">' +
+            '<span>Most common: <strong>' + topCategory + '</strong></span>' +
+            '<span>Pending: <strong>' + a.pending + '</strong></span>' +
+            '<span>Resolved: <strong>' + a.resolved + '</strong></span>' +
+            '<span>Critical/High: <strong>' + a.criticalHigh + '</strong></span>' +
+          '</div>';
+        grid.appendChild(card);
+      });
+    }
+
+    // ===== Voice Assistant / Speak to SmartCI =====
+    // Uses the browser's built-in Web Speech API where available. The
+    // citizen stays in control: recognized speech only pre-fills the
+    // existing Report an Issue form fields — nothing is ever auto-submitted.
+    (function setupVoiceAssistant() {
+      var voiceBtn = document.getElementById('voice-assist-btn');
+      var transcriptBox = document.getElementById('voice-transcript-box');
+      var transcriptText = document.getElementById('voice-transcript-text');
+      var unsupportedNote = document.getElementById('voice-unsupported-note');
+      if (!voiceBtn) {
+        return;
+      }
+
+      var SpeechRecognitionCtor = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognitionCtor) {
+        if (unsupportedNote) {
+          unsupportedNote.style.display = 'block';
+        }
+        voiceBtn.disabled = true;
+        voiceBtn.style.opacity = '0.5';
+        voiceBtn.style.cursor = 'not-allowed';
+        return;
+      }
+
+      var recognition = new SpeechRecognitionCtor();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      var CATEGORY_VOICE_KEYWORDS = [
+        { value: 'roads', words: ['pothole', 'road', 'street ', 'footpath', 'pavement'] },
+        { value: 'utilities', words: ['water', 'power', 'electricity', 'gas leak', 'gas smell', 'pipe'] },
+        { value: 'traffic', words: ['traffic signal', 'traffic light', 'junction signal'] },
+        { value: 'environment', words: ['garbage', 'trash', 'waste', 'sanitation', 'sewage', 'bad smell'] },
+        { value: 'street-lighting', words: ['streetlight', 'street light', 'lamp post', 'lamppost'] }
+      ];
+
+      function guessCategory(text) {
+        var lower = text.toLowerCase();
+        for (var i = 0; i < CATEGORY_VOICE_KEYWORDS.length; i++) {
+          var entry = CATEGORY_VOICE_KEYWORDS[i];
+          for (var j = 0; j < entry.words.length; j++) {
+            if (lower.indexOf(entry.words[j]) !== -1) {
+              return entry.value;
+            }
+          }
+        }
+        return '';
+      }
+
+      function guessLocation(text) {
+        var match = text.match(/(?:near|at|on|in)\s+(.+)$/i);
+        return match ? match[1].replace(/[.!?]+$/, '').trim() : '';
+      }
+
+      recognition.onresult = function (event) {
+        var transcript = event.results[0][0].transcript;
+        if (transcriptText) {
+          transcriptText.textContent = transcript;
+        }
+        if (transcriptBox) {
+          transcriptBox.classList.add('show');
+        }
+
+        var categorySelect = document.getElementById('issue-category');
+        var descriptionField = document.getElementById('issue-description');
+        var locationField = document.getElementById('issue-location');
+
+        var guessedCategory = guessCategory(transcript);
+        if (guessedCategory && categorySelect) {
+          categorySelect.value = guessedCategory;
+        }
+        if (descriptionField && !descriptionField.value) {
+          descriptionField.value = transcript.charAt(0).toUpperCase() + transcript.slice(1);
+        }
+        var guessedLocation = guessLocation(transcript);
+        if (guessedLocation && locationField && !locationField.value) {
+          locationField.value = guessedLocation;
+        }
+
+        var reportSection = document.getElementById('report-issue');
+        if (reportSection) {
+          reportSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      recognition.onerror = function () {
+        voiceBtn.classList.remove('listening');
+        voiceBtn.textContent = '🎤 Voice Assistant';
+      };
+
+      recognition.onend = function () {
+        voiceBtn.classList.remove('listening');
+        voiceBtn.textContent = '🎤 Voice Assistant';
+      };
+
+      voiceBtn.addEventListener('click', function () {
+        voiceBtn.classList.add('listening');
+        voiceBtn.textContent = '🔴 Listening…';
+        try {
+          recognition.start();
+        } catch (e) {
+          voiceBtn.classList.remove('listening');
+          voiceBtn.textContent = '🎤 Voice Assistant';
+        }
+      });
+    })();
+
+    // ===== Location Pinning =====
+    // Best-effort reverse geocoding via a free, no-key public API; if that
+    // fails (offline demo, blocked network, etc.) the raw coordinates are
+    // kept so the form and map still work without breaking anything.
+    (function setupLocationPinning() {
+      var useLocBtn = document.getElementById('use-location-btn');
+      var statusEl = document.getElementById('location-pin-status');
+      var previewEl = document.getElementById('location-preview');
+      var latInput = document.getElementById('issue-lat');
+      var lngInput = document.getElementById('issue-lng');
+      var locationField = document.getElementById('issue-location');
+      if (!useLocBtn) {
+        return;
+      }
+
+      useLocBtn.addEventListener('click', function () {
+        if (!navigator.geolocation) {
+          statusEl.textContent = "Location isn't supported in this browser.";
+          return;
+        }
+        statusEl.textContent = 'Locating…';
+        statusEl.classList.remove('ok');
+
+        navigator.geolocation.getCurrentPosition(function (pos) {
+          var lat = pos.coords.latitude;
+          var lng = pos.coords.longitude;
+          latInput.value = lat;
+          lngInput.value = lng;
+          statusEl.textContent = 'Location captured ✓';
+          statusEl.classList.add('ok');
+          previewEl.classList.add('show');
+          previewEl.textContent = 'Lat: ' + lat.toFixed(5) + ', Lng: ' + lng.toFixed(5) + ' — resolving address…';
+
+          fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lng)
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              var address = data && data.display_name ? data.display_name : null;
+              previewEl.textContent = 'Lat: ' + lat.toFixed(5) + ', Lng: ' + lng.toFixed(5) + (address ? ' — ' + address : '');
+              if (address && locationField && !locationField.value) {
+                locationField.value = address;
+              }
+            })
+            .catch(function () {
+              previewEl.textContent = 'Lat: ' + lat.toFixed(5) + ', Lng: ' + lng.toFixed(5) + ' (address lookup unavailable — coordinates saved)';
+            });
+        }, function () {
+          statusEl.textContent = 'Location permission denied or unavailable.';
+        });
+      });
+    })();
+
+    // ===== Smart Issue Image Evidence: live preview on choose =====
+    (function setupPhotoPreview() {
+      var photoInput = document.getElementById('issue-photo');
+      var previewEl = document.getElementById('photo-preview');
+      if (!photoInput || !previewEl) {
+        return;
+      }
+      photoInput.addEventListener('change', function () {
+        var file = photoInput.files && photoInput.files[0];
+        if (!file) {
+          previewEl.classList.remove('show');
+          previewEl.innerHTML = '';
+          return;
+        }
+        var reader = new FileReader();
+        reader.onload = function () {
+          previewEl.innerHTML = '<img class="admin-modal-photo" style="max-height:160px;" src="' + reader.result + '" alt="Selected photo preview">';
+          previewEl.classList.add('show');
+        };
+        reader.readAsDataURL(file);
+      });
+    })();
+
+    // Initial render, same as the Civic Status / Citizen Dashboard sections.
+    runEscalationChecks();
+    renderAdminDashboard();
+    renderIssueMap();
+    renderHotspots();
+    renderNotifications();
+    applyRoleGating();
+
+    // Re-check escalation periodically so an admin who leaves the tab open
+    // still sees overdue issues escalate without a manual refresh.
+    setInterval(function () {
+      runEscalationChecks();
+      if (currentUserRole === 'admin') {
+        renderAdminDashboard();
+      }
+    }, 60000);
+  </script>
+
+</body>
+</html>
